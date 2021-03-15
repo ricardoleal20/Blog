@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    
+
+    <meta name="author" content="Ricardo M. Leal Lopez">
+    <meta name="description" content="Python Code for solve the Traffic Flow PDE">
+    <meta name="keywords" content="Programmer, Physicist">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Simulating the traffic flow with Python"/>
+<meta name="twitter:description" content="Python Code for solve the Traffic Flow PDE"/>
+
+    <meta property="og:title" content="Simulating the traffic flow with Python" />
+<meta property="og:description" content="Python Code for solve the Traffic Flow PDE" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/" />
+<meta property="article:published_time" content="2021-01-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-30T00:00:00+00:00" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/" />
+
+
+
+    <title>
+  Simulating the traffic flow with Python · Ricardo
+</title>
+
+    
+      <link rel="canonical" href="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/">
+    
+
+    <link rel="preload" href="https://ricardoleal20.github.io/Blog/fonts/forkawesome-webfont.woff2?v=1.1.7" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder.min.ec198d25949ddd79a670b1ead43ca88e0bc2c1343266d0df0a9eeb7f3f207777.css" integrity="sha256-7BmNJZSd3XmmcLHq1DyojgvCwTQyZtDfCp7rfz8gd3c=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder-dark.min.89c82b6022b96f77aeb521b240daec4f87ea029d84d1c78b8acd0735b91b3c92.css" integrity="sha256-icgrYCK5b3eutSGyQNrsT4fqAp2E0ceLis0HNbkbPJI=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ricardoleal20.github.io/Blog/">
+      Ricardo
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/">Español</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+<div id="particles-js"></div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/">
+              Simulating the traffic flow with Python
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-01-30T00:00:00Z'>
+                January 30, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/categories/python/">Python</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/">Numerical Methods</a>
+      <span class="separator">•</span>
+    <a href="https://ricardoleal20.github.io/Blog/tags/python/">Python</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>This code was made for the course <a href="https://openedx.seas.gwu.edu/courses/course-v1:MAE+MAE6286+2017/about">Practical Numerical Methods with Python</a>. This is the solution for the second homework.</p>
+<p>Consider the flow of traffic on a one-lane highway. How can we describe the general behavior of this system?</p>
+<p>We can define the speed of traffic, $V$, in kilometers per hour. We can also deffine a traffic density, the number of cars per unit length of highwai, $\rho$, in cars per kilometer. Finally, we can define a traffic flux, or the flow rate of cars, $F$ in cars per hour.</p>
+<p>Now make a few assumptions about how traffic moves.</p>
+<p>If $\rho$ approaches 0, i.e. there are very few cars on the road, then cars will drive as fast as they can at some $V_{max}$.</p>
+<p>Conversely, if cars are bumper to bumper along the road, then $\rho$ approaches a $\rho_{max}$ and $V$ approaches 0.</p>
+<p>One possible equation to describe this behavior is</p>
+<p>\begin{equation}
+V=V_{max}\left(1-\frac{\rho}{\rho_{max}}\right)
+\end{equation}</p>
+<p>If we describe the traffic flux, $F$ as:</p>
+<p>\begin{equation}
+F=V\rho
+\end{equation}</p>
+<p>then</p>
+<p>\begin{equation}
+F=F(\rho)=V(\rho)\rho=V_{max}\rho\left(1-\frac{\rho}{\rho_{max}}\right)
+\end{equation}</p>
+<p>Unsteady traffic flow can be modelled as the non-linear convection of car density, so we apply the non-linear convection equation with $V$, the wave speed, equal to $\partial F/\partial\rho$:</p>
+<p>\begin{equation}
+\frac{\partial\rho}{\partial t}+\frac{\partial F}{\partial \rho}\frac{\partial\rho}{\partial x}=0
+\end{equation}</p>
+<p>Applying the chain rule of calculus, this becomes</p>
+<p>\begin{equation}
+\frac{\partial\rho}{\partial t}+\frac{\partial F}{\partial x}=0
+\end{equation}</p>
+<p>where $F$ is defined as above.</p>
+<p>Discretize the traffic flow equation using forward difference in time and backward-difference in space.</p>
+<p>Examine a stretch of road $11$ kilometers long using the following conditions:</p>
+<ul>
+<li>$V_{max}=80\frac{km}{hr}$</li>
+<li>$L=11$ km</li>
+<li>$\rho_{max}=250\frac{cars}{km}$</li>
+<li>$nx=51$</li>
+<li>$\Delta t=0.001$ hours</li>
+</ul>
+<h3 id="start-coding">
+  Start coding
+  <a class="heading-link" href="#start-coding">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>The first thing that you need to do is to import the libraries.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">import</span> pandas <span style="color:#f00">as</span> pd
+<span style="color:#f00">import</span> numpy <span style="color:#f00">as</span> np
+<span style="color:#f00">import</span> sympy <span style="color:#f00">as</span> sp
+<span style="color:#f00">import</span> matplotlib.pyplot <span style="color:#f00">as</span> plt
+<span style="color:#f00">from</span> mpl_toolkits.mplot3d <span style="color:#f00">import</span> axes3d
+</code></pre></div><p>And you need to define all the variables to use.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Vmax=<span style="color:#f60">80</span>     <span style="color:#0f0">#km/hr</span>
+L=<span style="color:#f60">11</span>        <span style="color:#0f0">#km</span>
+tf=<span style="color:#f60">0.17</span>        <span style="color:#0f0">#Final hours of simulation</span>
+rhomax=<span style="color:#f60">250</span>  <span style="color:#0f0">#cars/km</span>
+nx=<span style="color:#f60">51</span>       <span style="color:#0f0">#Number of x division</span>
+dt=<span style="color:#f60">0.001</span>    <span style="color:#0f0">#hours to second</span>
+dx=L/nx     <span style="color:#0f0">#Finite steps for the space</span>
+nt=int((tf)/dt)  <span style="color:#0f0">#Number of t division</span>
+
+<span style="color:#0f0">#The total division of the time</span>
+t=np.linspace(<span style="color:#f60">0</span>,tf,nt)
+</code></pre></div><p>I also make three functions to get $V$, $F$ and $CFL$ condition. This are the functions</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#0f0">#Function of speed of traffic</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">V</span>(rho,Vmax,rhomax):
+    <span style="color:#f00">return</span> Vmax*(<span style="color:#f60">1</span>-rho/rhomax)
+
+<span style="color:#0f0">#Function for traffic flux</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">F</span>(rho):
+    <span style="color:#f00">global</span> Vmax,rhomax
+    <span style="color:#f00">return</span> V(rho,Vmax,rhomax)*rho
+
+<span style="color:#f00">def</span> <span style="color:#ff0">CFL</span>(dt,dx,Vmax):
+    <span style="color:#f00">return</span> (dt/dx)*Vmax
+</code></pre></div><p>It&rsquo;s time to check that the CFL is low. I want it $&lt;1$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">print</span>(<span style="color:#87ceeb">&#39;The CFL condition is k={0:.5f}, and k&lt;1&#39;</span>.format(CFL(dt,dx,Vmax)))
+</code></pre></div><p>This says that our CFL condition is $k=0.37091$.</p>
+<h3 id="discretize-the-pde">
+  Discretize the PDE
+  <a class="heading-link" href="#discretize-the-pde">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>I know that $F=V(\rho)\rho=V_{max}\rho\left(1-\frac{\rho}{\rho_{max}}\right)$ so I have $F(\rho)$. The PDE can be:</p>
+<p>\begin{equation}
+\frac{\partial\rho}{\partial t}=-\frac{\partial F(\rho)}{\partial x}
+\end{equation}</p>
+<p>Using backward difference for $x$ and forward difference for $t$, I have</p>
+<p>\begin{equation}
+\begin{array}{cc}
+\large\frac{\partial\rho}{\partial t}\approx\frac{\rho_x^{t+1}-\rho_x^t}{\Delta t} &amp; \large\frac{\partial F(\rho)}{\partial x}\approx\frac{F(\rho_x^t)-F(\rho_{x-1}^t)}{\Delta x}
+\end{array}
+\end{equation}</p>
+<p>Using this in the PDE, I have:</p>
+<p>\begin{equation}
+\frac{\rho_x^{t+1}-\rho_x^t}{\Delta t}=-\frac{F(\rho_x^t)-F(\rho_{x-1}^t)}{\Delta x}
+\end{equation}</p>
+<p>Using some algebra, my discretized equation is</p>
+<p>\begin{equation}
+\rho_x^{t+1}=\rho_x^t-\frac{\Delta t}{\Delta x}\left(F(\rho_x^t)-F(\rho_{x-1}^t)\right)
+\end{equation}</p>
+<p>This last discretized equation is in the next Python function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#0f0">#This gives the initial state of the system at t=0</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">Solution</span>(rho,nx,nt):
+    rhoS=np.zeros((nx,nt))
+    <span style="color:#f00">for</span> i in range(<span style="color:#f60">0</span>,nx):
+        rhoS[i,<span style="color:#f60">0</span>]=rho[i]
+    <span style="color:#f00">return</span> rhoS
+
+<span style="color:#0f0">#Here I use the FDM to solve the PDE</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">Finite</span>(Vmax,L,tf,rhomax,nx,nt,dt,dx):
+    k=CFL(dt,dx,Vmax) <span style="color:#0f0">#For simplicity</span>
+    rho=IC(nx) <span style="color:#0f0">#Call the initial condition for the density of cars</span>
+    rhoS=Solution(rho,nx,nt)
+    Vel=np.zeros(nx)
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">0</span>,nt-<span style="color:#f60">1</span>):
+        rhoS=BC(rhoS,nt)
+        <span style="color:#f00">for</span> i in range(<span style="color:#f60">0</span>,nx):
+            rhoS[i,j+<span style="color:#f60">1</span>]=rhoS[i,j]-(dt/dx)*(F(rhoS[i,j])-F(rhoS[i-<span style="color:#f60">1</span>,j]))
+    rhoS=BC(rhoS,nt) <span style="color:#0f0">#Here I check that the BC if fullfiled</span>
+    <span style="color:#f00">return</span> rhoS
+</code></pre></div><h3 id="simulation-results-part-a">
+  Simulation Results: Part A
+  <a class="heading-link" href="#simulation-results-part-a">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Using the following initial conditions for traffic density:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x= np.linspace(<span style="color:#f60">0</span>,L,nx)
+<span style="color:#0f0">#initial conditions, this is rho0</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">IC</span>(nx):
+    rho0=np.ones(nx)*<span style="color:#f60">10</span>
+    rho0[<span style="color:#f60">10</span>:<span style="color:#f60">20</span>]=<span style="color:#f60">50</span>
+    <span style="color:#f00">return</span> rho0
+</code></pre></div><p>and the following boundary condition:
+\begin{equation} \rho(0,t)=10 \end{equation}</p>
+<p>Solve the PDE.</p>
+<p>The first thing to do is use the inicial conditions (the IC function) and create a function called BC (Boundary Conditions) to apply what the problem say to us.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">def</span> <span style="color:#ff0">BC</span>(rhoS,nt):
+    <span style="color:#0f0">#This is when km=0, for every time</span>
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">0</span>,nt):
+        rhoS[<span style="color:#f60">0</span>,j]=<span style="color:#f60">10</span>
+    <span style="color:#f00">return</span> rhoS
+<span style="color:#0f0">#I call the function for the solution of the PDE</span>
+rhoS=Finite(Vmax,L,tf,rhomax,nx,nt,dt,dx)
+</code></pre></div><p>And now, with Pandas, you can create a velocity dataframe in $\frac{m}{s}$.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Vel_ms=V(rhoS,Vmax,rhomax)*(<span style="color:#f60">1000</span>/<span style="color:#f60">3600</span>) <span style="color:#0f0">#km/h to m/s</span>
+
+Vel=pd.DataFrame(Vel_ms)
+</code></pre></div><p>And know, you can check distinct times.</p>
+<h3 id="solution-graph">
+  Solution graph
+  <a class="heading-link" href="#solution-graph">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>The graph of our solution for the PDE is:</p>
+<figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/traffic%20flow/traffic-flow1.png"/> 
+</figure>
+
+<p>In video, the solutions looks like the following.</p>
+<p>This one is for the time.</p>
+
+ 
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/traffic flow/traffic_flow_v1.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+<p>This one is for the space.</p>
+
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/traffic flow/traffic_flow_v2.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<h3 id="simulation-results-part-b">
+  Simulation Results: Part B
+  <a class="heading-link" href="#simulation-results-part-b">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Now, set $V_{max}=136\frac{km}{hr}$ and repeat the simulation using the following initial conditions for traffic density.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x=np.linspace(<span style="color:#f60">0</span>,L,nx)
+
+Vmax=<span style="color:#f60">136</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">IC</span>(nx):
+    rho0=np.ones(nx)*<span style="color:#f60">20</span>
+    rho0[<span style="color:#f60">10</span>:<span style="color:#f60">20</span>]=<span style="color:#f60">50</span>
+    <span style="color:#f00">return</span> rho0
+</code></pre></div><p>and the following boundary condition:
+\begin{equation} \rho(0,t)=20 \end{equation}</p>
+<p>Solve the PDE.</p>
+<p>Again, you need to define the BC conditions and again solve the PDE.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">def</span> <span style="color:#ff0">BC</span>(rhoS,nt):
+    <span style="color:#0f0">#This is when km=0, for every time</span>
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">0</span>,nt):
+        rhoS[<span style="color:#f60">0</span>,j]=<span style="color:#f60">10</span>
+    <span style="color:#f00">return</span> rhoS
+<span style="color:#0f0">#I call the function for the solution of the PDE</span>
+rhoS=Finite(Vmax,L,tf,rhomax,nx,nt,dt,dx)
+</code></pre></div><p>Like in the part A, also I create a DataFrame with all the velocities.</p>
+<h3 id="solution-graph-1">
+  Solution graph.
+  <a class="heading-link" href="#solution-graph-1">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>The solution graph of this system is</p>
+<figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/traffic%20flow/traffic-flow2.png"/> 
+</figure>
+
+<p>Again, the video solutions looks like the following.</p>
+<p>This one is for the time.</p>
+
+ 
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/traffic flow/traffic_flow_v1.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>This one is for the space.</p>
+
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/traffic flow/traffic_flow_v2.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>That&rsquo;s all for this post! You can check the jupyter notebook from this problem <a href="https://github.com/ricardoleal20/Personal-Projects/blob/master/Python/Numerical%20Methods/Practical%20Methods%20-%20HM2.ipynb">here</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="see-also-in-python">
+        See also in Python
+        <a class="heading-link" href="#see-also-in-python">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/">Simulating a rocket flight with Python</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2020 -
+        
+        2021
+         Ricardo M. Leal Lopez 
+      
+      
+      
+    </section>
+  </footer>
+  <script src="https://ricardoleal20.github.io/Blog/js/particles.min.js"></script>
+  <script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>  
+
+
+    </main>
+
+    
+      
+        
+        <script src="https://ricardoleal20.github.io/Blog/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

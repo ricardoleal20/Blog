@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Numerical Methods on Home</title>
+    <title>Numerical Methods on Ricardo</title>
     <link>https://ricardoleal20.github.io/Blog/tags/numerical-methods/</link>
-    <description>Recent content in Numerical Methods on Home</description>
+    <description>Recent content in Numerical Methods on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulating the traffic flow with Python</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/</link>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/</guid>
+      <description>This code was made for the course Practical Numerical Methods with Python. This is the solution for the second homework.
+Consider the flow of traffic on a one-lane highway. How can we describe the general behavior of this system?
+We can define the speed of traffic, $V$, in kilometers per hour. We can also deffine a traffic density, the number of cars per unit length of highwai, $\rho$, in cars per kilometer.</description>
+    </item>
+    
     <item>
       <title>Simulating a rocket flight with Python</title>
       <link>https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/</link>
