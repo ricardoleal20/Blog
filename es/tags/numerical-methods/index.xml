@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Numerical Methods on Inicio</title>
+    <title>Numerical Methods on Ricardo</title>
     <link>https://ricardoleal20.github.io/Blog/es/tags/numerical-methods/</link>
-    <description>Recent content in Numerical Methods on Inicio</description>
+    <description>Recent content in Numerical Methods on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/tags/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulación del flujo de tráfico con Python</title>
+      <link>https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/</guid>
+      <description>Este código fue hecho para el curso Practical Numerical Methods with Python. Esta es la solución de la segunda tarea.
+Considerando el flujo de tráfico en una carretera de un carril. ¿Como podriamos nosotros describir el comportamiento general de este sistema?
+Podriamos definir la velocidad del tráfic, $V$, en kilometros por hora. Tambien podriamos definir la densidad de tráfico, el numero de carros por unidad de longitud de la carrera, $\rho$, en carros por kilometros.</description>
+    </item>
+    
     <item>
       <title>Simulación del vuelo de un cohete con Python</title>
       <link>https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/</link>

@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://ricardoleal20.github.io/Blog/categories/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -18,23 +18,8 @@
   </url>
   
   <url>
-    <loc>https://ricardoleal20.github.io/Blog/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/"
-                />
-  </url>
-  
-  <url>
     <loc>https://ricardoleal20.github.io/Blog/tags/numerical-methods/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -49,7 +34,7 @@
   
   <url>
     <loc>https://ricardoleal20.github.io/Blog/posts/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -64,7 +49,7 @@
   
   <url>
     <loc>https://ricardoleal20.github.io/Blog/tags/python/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -79,12 +64,12 @@
   
   <url>
     <loc>https://ricardoleal20.github.io/Blog/series/python/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ricardoleal20.github.io/Blog/categories/python/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -98,8 +83,23 @@
   </url>
   
   <url>
+    <loc>https://ricardoleal20.github.io/Blog/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/"
+                />
+  </url>
+  
+  <url>
     <loc>https://ricardoleal20.github.io/Blog/series/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -109,6 +109,36 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ricardoleal20.github.io/Blog/series/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/tags/</loc>
+    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/tags/"
                 />
   </url>
   
@@ -124,21 +154,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ricardoleal20.github.io/Blog/tags/</loc>
-    <lastmod>2021-01-25T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/tags/"
                 />
   </url>
   
