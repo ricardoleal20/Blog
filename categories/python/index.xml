@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Home</title>
+    <link>https://ricardoleal20.github.io/Blog/categories/python/</link>
+    <description>Recent content in Python on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulating a rocket flight with Python</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/</guid>
+      <description>This code was made for the course Practical Numerical Methods with Python. This is the solution for the first homework.
+The equations of motion for a rocker in purely vertical flight are given by:
+\begin{equation} \begin{array}{c} \frac{dh}{dt}=v \\\
+(m_s+m_p)\frac{dv}{dt}=-(m_s+m_p)g+\dot{m}_pv_e-\frac{1}{2}\rho v|v|AC_D \end{array} \end{equation}
+ $h$ is the altitude of the rocket. $m_s$=50kg is the weight of the rocket shell. $g$=9.81 $\frac{m}{s^2}$ $\rho$=1.091 $\frac{kg}{m^3}$ is the average air density (assumed constant throughout flight).</description>
+    </item>
+    
+  </channel>
+</rss>

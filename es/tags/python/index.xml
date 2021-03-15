@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Inicio</title>
+    <link>https://ricardoleal20.github.io/Blog/es/tags/python/</link>
+    <description>Recent content in Python on Inicio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulación del vuelo de un cohete con Python</title>
+      <link>https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/</guid>
+      <description>Este código fue hecho para el curso Practical Numerical Methods with Python. Este código es la solución de la primer tarea.
+Las ecuaciones del movimiento de un cohete en vuelo puramente vertical son dadas por:
+\begin{equation} \begin{array}{c} \frac{dh}{dt}=v \\\
+(m_s+m_p)\frac{dv}{dt}=-(m_s+m_p)g+\dot{m}_pv_e-\frac{1}{2}\rho v|v|AC_D \end{array} \end{equation}
+ $h$ es la altura del cohete. $m_s$=50kg es el peso del proyectil. $g$=9.81 $\frac{m}{s^2}$ $\rho$=1.091 $\frac{kg}{m^3}$ es la densidad promedio del aire (asumiendola constante durante el vuelo).</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home</title>
+    <link>https://ricardoleal20.github.io/Blog/</link>
+    <description>Recent content on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulating a rocket flight with Python</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/</guid>
+      <description>This code was made for the course Practical Numerical Methods with Python. This is the solution for the first homework.
+The equations of motion for a rocker in purely vertical flight are given by:
+\begin{equation} \begin{array}{c} \frac{dh}{dt}=v \\\
+(m_s+m_p)\frac{dv}{dt}=-(m_s+m_p)g+\dot{m}_pv_e-\frac{1}{2}\rho v|v|AC_D \end{array} \end{equation}
+ $h$ is the altitude of the rocket. $m_s$=50kg is the weight of the rocket shell. $g$=9.81 $\frac{m}{s^2}$ $\rho$=1.091 $\frac{kg}{m^3}$ is the average air density (assumed constant throughout flight).</description>
+    </item>
+    
+    <item>
+      <title>About me.</title>
+      <link>https://ricardoleal20.github.io/Blog/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/about/</guid>
+      <description>Hi! My name is Ricardo.    I&amp;rsquo;m a physics student. curently at my last semester, specializing in computer applied mathematics. I have experience in the application of mathematics for modeling and simulation, as well as numerical data analysis. I have been in several summer schools, courses and projects that have given me the opportunity to hone my skills and open my perspective on what I can do with them.</description>
+    </item>
+    
+    <item>
+      <title>Contact.</title>
+      <link>https://ricardoleal20.github.io/Blog/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/contact/</guid>
+      <description>To contact me, you can do it throught:
+ Talk with me in Twitter. Checking my Github. Send my a message in LinkedIn. Send me a email to ricardo.lealpz@gmail.com.  </description>
+    </item>
+    
+    <item>
+      <title>First snippet</title>
+      <link>https://ricardoleal20.github.io/Blog/snippets/first/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/snippets/first/</guid>
+      <description>This content is in snippets/first/index.md
+pwd </description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://ricardoleal20.github.io/Blog/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/projects/</guid>
+      <description>Under construction, come back soon!</description>
+    </item>
+    
+    <item>
+      <title>Second snippet</title>
+      <link>https://ricardoleal20.github.io/Blog/snippets/second/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/snippets/second/</guid>
+      <description>This content is in snippets/second/index.md
+ls -la </description>
+    </item>
+    
+  </channel>
+</rss>

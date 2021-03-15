@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inicio</title>
+    <link>https://ricardoleal20.github.io/Blog/es/</link>
+    <description>Recent content on Inicio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulación del vuelo de un cohete con Python</title>
+      <link>https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/</guid>
+      <description>Este código fue hecho para el curso Practical Numerical Methods with Python. Este código es la solución de la primer tarea.
+Las ecuaciones del movimiento de un cohete en vuelo puramente vertical son dadas por:
+\begin{equation} \begin{array}{c} \frac{dh}{dt}=v \\\
+(m_s+m_p)\frac{dv}{dt}=-(m_s+m_p)g+\dot{m}_pv_e-\frac{1}{2}\rho v|v|AC_D \end{array} \end{equation}
+ $h$ es la altura del cohete. $m_s$=50kg es el peso del proyectil. $g$=9.81 $\frac{m}{s^2}$ $\rho$=1.091 $\frac{kg}{m^3}$ es la densidad promedio del aire (asumiendola constante durante el vuelo).</description>
+    </item>
+    
+    <item>
+      <title>Contacto.</title>
+      <link>https://ricardoleal20.github.io/Blog/es/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/contact/</guid>
+      <description>Para contactarme, puedes hacerlo mediante los siguientes medios:
+ Hablando conmigo en Twitter Checando mi Github Mandandome un mensaje en LinkedIn Enviandome un correo a ricardo.lealpz@gmail.com  </description>
+    </item>
+    
+    <item>
+      <title>Proyectos</title>
+      <link>https://ricardoleal20.github.io/Blog/es/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/projects/</guid>
+      <description>En construcción, ¡vuelva pronto!</description>
+    </item>
+    
+    <item>
+      <title>Sobre mi.</title>
+      <link>https://ricardoleal20.github.io/Blog/es/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/about/</guid>
+      <description>¡Hola! Me llamo Ricardo.    Estudiante en física cursando su último semestre, especializado en física computacional. Manejo experiencia en la aplicación de las matemáticas para el modelado y simulación, así como el análisis numérico de datos. He estado en diversas escuelas de verano, cursos y proyectos que me han dado la oportunidad de afinar mis habilidades y abrir mi perspectiva de lo que puedo hacer con ellas. Los proyectos han consistido en investigación de materiales y situaciones naturales haciendo uso de métodos numéricos aplicados en distintos lenguajes de programación.</description>
+    </item>
+    
+  </channel>
+</rss>
