@@ -5,6 +5,16 @@
     <link>https://ricardoleal20.github.io/Blog/es/series/</link>
     <description>Recent content in Series on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://ricardoleal20.github.io/Blog/es/series/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python</title>
+      <link>https://ricardoleal20.github.io/Blog/es/series/python/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/series/python/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

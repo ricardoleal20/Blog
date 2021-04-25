@@ -6,11 +6,24 @@
     <description>Recent content in Posts on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análisis de la membrana timpanica con la ecuación de onda.</title>
+      <link>https://ricardoleal20.github.io/Blog/es/posts/wave_membrane/wave_membrane/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/posts/wave_membrane/wave_membrane/</guid>
+      <description>Modelado del comportamiento vibracional del modelo isotropico de la membrana timpanica.    La membrana timpanica es una estructura que se encuentra dentro de nuestro oido. El comportamiento de esa pequeña membrana puede ser modelado por la ecuación de onda:
+\begin{equation} \frac{\partial^2 u}{\partial t^2}=c^2\frac{\partial^2u}{\partial x^2} \end{equation}
+La ecuación, en este caso, se encuentra contenida en los siguientes parametros:
+\begin{equation} 0&amp;lt;x&amp;lt;l\hspace{2mm} \land\hspace{2mm} 0&amp;lt;t&amp;lt;t_f \end{equation}
+La condición de borde para nuestro sistema es:</description>
+    </item>
+    
     <item>
       <title>Simulación del flujo de tráfico con Python</title>
       <link>https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/</link>
-      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/</guid>
       <description>Este código fue hecho para el curso Practical Numerical Methods with Python. Esta es la solución de la segunda tarea.

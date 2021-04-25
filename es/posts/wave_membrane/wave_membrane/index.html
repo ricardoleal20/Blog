@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+  <div id="particles-js"></div>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="es">
+    
+
+    <meta name="author" content="Ricardo M. Leal Lopez">
+    <meta name="description" content="Análisis de la ecuación de onda con Python.">
+    <meta name="keywords" content="Físico,Programador">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Análisis de la membrana timpanica con la ecuación de onda."/>
+<meta name="twitter:description" content="Análisis de la ecuación de onda con Python."/>
+
+    <meta property="og:title" content="Análisis de la membrana timpanica con la ecuación de onda." />
+<meta property="og:description" content="Análisis de la ecuación de onda con Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ricardoleal20.github.io/Blog/es/posts/wave_membrane/wave_membrane/" />
+<meta property="article:published_time" content="2021-02-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-10T00:00:00+00:00" /><meta property="og:site_name" content="Ricardo" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/" />
+
+
+
+    <title>
+  Análisis de la membrana timpanica con la ecuación de onda. · Ricardo
+</title>
+
+    
+      <link rel="canonical" href="https://ricardoleal20.github.io/Blog/es/posts/wave_membrane/wave_membrane/">
+    
+
+    <link rel="preload" href="https://ricardoleal20.github.io/Blog/fonts/forkawesome-webfont.woff2?v=1.1.7" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder.min.ec198d25949ddd79a670b1ead43ca88e0bc2c1343266d0df0a9eeb7f3f207777.css" integrity="sha256-7BmNJZSd3XmmcLHq1DyojgvCwTQyZtDfCp7rfz8gd3c=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder-dark.min.89c82b6022b96f77aeb521b240daec4f87ea029d84d1c78b8acd0735b91b3c92.css" integrity="sha256-icgrYCK5b3eutSGyQNrsT4fqAp2E0ceLis0HNbkbPJI=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/style.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ricardoleal20.github.io/Blog/es">
+      Ricardo
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/es/about/">Sobre mi</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/es/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/es/projects/">Proyectos</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/es/contact/">Contacto</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://ricardoleal20.github.io/Blog/es/posts/wave_membrane/wave_membrane/">
+              Análisis de la membrana timpanica con la ecuación de onda.
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-02-10T00:00:00Z'>
+                February 10, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4 minutos de lectura.
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/es/categories/python/">Python</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/es/tags/numerical-methods/">Numerical Methods</a>
+      <span class="separator">•</span>
+    <a href="https://ricardoleal20.github.io/Blog/es/tags/python/">Python</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h3 id="modelado-del-comportamiento-vibracional-del-modelo-isotropico-de-la-membrana-timpanica">
+  Modelado del comportamiento vibracional del modelo isotropico de la membrana timpanica.
+  <a class="heading-link" href="#modelado-del-comportamiento-vibracional-del-modelo-isotropico-de-la-membrana-timpanica">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>La membrana timpanica es una estructura que se encuentra dentro de nuestro oido. El comportamiento de esa pequeña membrana puede ser modelado por la ecuación de onda:</p>
+<p>\begin{equation}
+\frac{\partial^2 u}{\partial t^2}=c^2\frac{\partial^2u}{\partial x^2}
+\end{equation}</p>
+<p>La ecuación, en este caso, se encuentra contenida en los siguientes parametros:</p>
+<p>\begin{equation}
+0&lt;x&lt;l\hspace{2mm} \land\hspace{2mm} 0&lt;t&lt;t_f
+\end{equation}</p>
+<p>La condición de borde para nuestro sistema es:</p>
+<p>\begin{equation}
+u(0,t)=u(l,t)=0 \hspace{2mm}
+\end{equation}</p>
+<p>Y la condición inicial:</p>
+<p>\begin{equation}
+\frac{\partial u_x^0}{\partial t}=0 \hspace{2mm}\land\hspace{2mm} u(x,0)=sin(\frac{n\pi x}{L})
+\end{equation}</p>
+<p>donde $n$ es el nodo vibracional. Los valores pueden ser $n=1,2,3,\cdots$ pero solamente observare los primeros cinco.</p>
+<p>Los valores a utilizar para este sistema son:</p>
+<ul>
+<li>$L_T=4x10^{-5}m$ que sera el largo de la parte tensa.</li>
+<li>$L_f=1x10^{-4}m$ que sera el largo de la parte flácida.</li>
+<li>$t_0=0$</li>
+<li>$t_f=2.42x10^{-7}s$</li>
+<li>$E=2x10^7Pa$</li>
+<li>$\rho_T=1000kg/m^3$ siendo la densidad de la parte tensa.</li>
+<li>$\rho_f=1200kg/m^3$ siendo la densidad de la parte flácida.</li>
+<li>$\mu=0.3$ siendo el modulo de Poison.</li>
+</ul>
+<p>En este caso, la velocidad de propagación $(c)$ es:</p>
+<p>\begin{equation}
+c=\sqrt{\frac{E}{\rho}\frac{(1-\mu)}{((1+\mu)(1-2\mu))}}
+\end{equation}</p>
+<p>Usare diferencias finitas para resolver la ecuación diferencial. Para el código, usare las siguientes librarias:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">%matplotlib inline
+<span style="color:#f00">import</span> numpy <span style="color:#f00">as</span> np
+<span style="color:#f00">import</span> pandas <span style="color:#f00">as</span> pd
+<span style="color:#f00">import</span> matplotlib.pyplot <span style="color:#f00">as</span> plt
+<span style="color:#f00">from</span> matplotlib.animation <span style="color:#f00">import</span> FuncAnimation
+<span style="color:#f00">from</span> numba <span style="color:#f00">import</span> njit
+<span style="color:#f00">from</span> jupyterthemes <span style="color:#f00">import</span> jtplot
+jtplot.style(theme=<span style="color:#87ceeb">&#39;monokai&#39;</span>)
+</code></pre></div><p>Si te estas preguntando, ¿qué es Numba? Bueno, es una libreria de Python que hace que nuestro código sea mucho más rapido que antes. Puedes saber más sobre el <a href="https://numba.pydata.org">aquí</a>.</p>
+<p>Ahora, pondre la sección donde creo las variables a usar.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lt=<span style="color:#f60">4e-5</span>
+lf=<span style="color:#f60">1e-4</span>
+tf=<span style="color:#f60">2.42e-7</span>
+E=<span style="color:#f60">2e7</span>
+rhot=<span style="color:#f60">1000</span>
+rhof=<span style="color:#f60">1200</span>
+mu=<span style="color:#f60">0.3</span> 
+
+<span style="color:#0f0">#Ahora, crea las variables c</span>
+ct=np.sqrt((E/rhot)*((<span style="color:#f60">1</span>-mu)/((<span style="color:#f60">1</span>+mu)*(<span style="color:#f60">1</span>-<span style="color:#f60">2</span>*mu))))
+cf=np.sqrt((E/rhof)*((<span style="color:#f60">1</span>-mu)/((<span style="color:#f60">1</span>+mu)*(<span style="color:#f60">1</span>-<span style="color:#f60">2</span>*mu))))
+
+<span style="color:#0f0">#Se escoge el mallado de la ecuación</span>
+Nx=<span style="color:#f60">551</span>
+Nt=<span style="color:#f60">551</span>
+dxt=(lt)/(Nx-<span style="color:#f60">1</span>)
+dxf=(lf)/(Nx-<span style="color:#f60">1</span>)
+dt=(tf)/(Nt-<span style="color:#f60">1</span>)
+
+<span style="color:#0f0">#Creamos los arreglos para x y t</span>
+xt=np.linspace(<span style="color:#f60">0</span>,lt,Nx)
+xf=np.linspace(<span style="color:#f60">0</span>,lf,Nx)
+t=np.linspace(<span style="color:#f60">0</span>,tf,Nt)
+
+@njit() <span style="color:#0f0">#Creamos una función que calcule el criterio CFL</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">cfl</span>(c,dt,dx):
+    <span style="color:#f00">return</span> c*(dt/dx)
+
+<span style="color:#0f0">#Ahora, lo calculamos</span>
+kt=cfl(ct,dt,dxt)
+kf=cfl(cf,dt,dxf)
+
+<span style="color:#f00">print</span>(<span style="color:#87ceeb">&#39;&#39;&#39;The CFL condition is 
+</span><span style="color:#87ceeb">kt={f}
+</span><span style="color:#87ceeb">kf={d}&#39;&#39;&#39;</span>.format(f=kt,d=kf))
+</code></pre></div><p>Esto me dice que $k_f=0.362$ y $k_t=0.99$. Como ambos criterios estan bien, puedo continuar.</p>
+<p>Es tiempo de trabajar en la discretización de las ecuaciones. Podemos utilizar diferencias finitas y demostrar que las ecuaciones discretizadas son:</p>
+<p>\begin{equation}
+\frac{\partial^2 u}{\partial x^2}\approx\frac{u_{x+1}^{t}-2u_{x}^{t}+u_{x-1}^{t}}{\Delta x^2}
+\end{equation}</p>
+<p>\begin{equation}
+\frac{\partial^2 u}{\partial t^2}\approx\frac{u_{x}^{t+1}-2u_{x}^{t}+u_{x}^{t-1}}{\Delta t^2}
+\end{equation}</p>
+<p>Por lo que, la PDE discretizada sera:</p>
+<p>\begin{equation}
+\frac{u_{x}^{t+1}-2u_{x}^{t}+u_{x}^{t-1}}{\Delta t^2}=c^2\frac{u_{x+1}^{t}-2u_{x}^{t}+u_{x-1}^{t}}{\Delta x^2}
+\end{equation}</p>
+<p>Usando algo de algebra, obtengo que:</p>
+<p>\begin{equation}
+u_x^{t+1}=k^2(u_{x+1}^{t}+u_{x-1}^{t})+2u_{x}^{t}(1-k^2)-u_x^{t-1}
+\end{equation}</p>
+<p>donde $k=c\frac{dt}{dx}$.</p>
+<p>Esta ecuación puede ser programada. Pero primero, debere checar el primer paso de la simulación para poder calcular $u_x^2$ usando $u_x^1$ y $u_x^0$. Esto significa:</p>
+<p>\begin{equation}
+u_x^1=k^2(u_{x+1}^{0}+u_{x-1}^{0})+2u_{x}^{0}(1-k^2)-u_x^{-1}
+\end{equation}</p>
+<p>No conocemos el valor $u_x^{-1}$, ya que se encuentra afuera del dominio del tiempo y de nuestro mallado. ¿como podriamos calcularlo? Bueno, podemos calcularlo dsicretizad la nuestra condición inicial:</p>
+<p>\begin{equation}
+\frac{\partial u_x^{0}}{\partial t}\approx\frac{u_x^1-u_x^{-1}}{\Delta t}
+\end{equation}</p>
+<p>Sabemos por nuestra condición inicial que $\frac{\partial u_x^0}{\partial t}=0$, por lo que tenemos:</p>
+<p>\begin{equation} u_x^{-1}=u_x^1 \end{equation}</p>
+<p>Ahora, volviendo a la ecuación para calcular $u_x^1$, usamos esto que recién calculamos y con la ayuda de álgebra, tenemos:</p>
+<p>\begin{equation}
+u_x^1=\frac{1}{2}k^2(u_{x+1}^{0}+u_{x-1}^{0})+u_{x}^{0}(1-k^2)
+\end{equation}</p>
+<p>Ya tenemos todo para poder programar la solución.</p>
+<p>Muchas gracias al libro <strong>Finite Difference Computing with PDEs</strong> escrito por Hans Petter Langtangen y Svein Linge.</p>
+<p>Hice tres funciones en Python para el código. La primera (que es la siguiente) fue creada para usar el método de diferencias finitas.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit() <span style="color:#0f0">#Function to execute finite difference method</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">fdm</span>(Nx,Nt,l,tf,k,x,t,n):
+    u=np.zeros((Nx,Nt))
+    u=BC(u,l,Nx,Nt) <span style="color:#0f0">#First, we initialize the BC</span>
+    u=IC(u,Nt,Nx,x,k,n,l) <span style="color:#0f0">#And nowm we calculate the IC</span>
+
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">1</span>,Nt-<span style="color:#f60">1</span>):
+        <span style="color:#f00">for</span> i in range(Nx-<span style="color:#f60">1</span>):
+            u[i,j+<span style="color:#f60">1</span>]=k**<span style="color:#f60">2</span>*(u[i+<span style="color:#f60">1</span>,j]+u[i-<span style="color:#f60">1</span>,j])+<span style="color:#f60">2</span>*u[i,j]*(<span style="color:#f60">1</span>-k**<span style="color:#f60">2</span>)-u[i,j-<span style="color:#f60">1</span>]
+        u=BC(u,l,Nx,Nt)
+    <span style="color:#f00">return</span> u
+</code></pre></div><p>Otra para poder añadir la condicion inicial del sistema en mi solución.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit() <span style="color:#0f0">#With this, we can calculate the initial conditions</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">IC</span>(u,Nt,Nx,x,k,n,l):
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">1</span>,Nx-<span style="color:#f60">2</span>):
+        u[j,<span style="color:#f60">0</span>]=np.sin(n*np.pi*x[j]/l)
+        <span style="color:#0f0">#u[j,0]=np.sin(np.pi*x[i])+0.5*np.sin(3*np.pi*x[i])</span>
+    <span style="color:#f00">for</span> i in range(Nx-<span style="color:#f60">1</span>):
+        u[i,<span style="color:#f60">1</span>]=<span style="color:#f60">0.5</span>*k**<span style="color:#f60">2</span>*(u[i+<span style="color:#f60">1</span>,<span style="color:#f60">0</span>]+u[i-<span style="color:#f60">1</span>,<span style="color:#f60">0</span>])+u[i,<span style="color:#f60">0</span>]*(<span style="color:#f60">1</span>-k**<span style="color:#f60">2</span>)
+    <span style="color:#f00">return</span> u
+</code></pre></div><p>Y la última para imponer las condiciones de borde.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit() <span style="color:#0f0">#This is for the boundary conditions</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">BC</span>(u,l,Nx,Nt):
+    <span style="color:#f00">for</span> j in range(Nt-<span style="color:#f60">1</span>):
+        u[<span style="color:#f60">0</span>,j]=<span style="color:#f60">0</span>
+        u[Nx-<span style="color:#f60">1</span>,j]=<span style="color:#f60">0</span>
+    <span style="color:#f00">return</span> u
+</code></pre></div><p>Puedo resolver ahora el sistema para distintos $n$. La gráfica de nuestro sistema es:</p>
+<figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/Membrane/solution.png"/> 
+</figure>
+
+<p>Como es una imagen estática, solo mostre los tiempos $t=0$, $t=\frac{t_f}{2}$ y $t=t_f$.</p>
+<p>Para dar una idea mucho más clara de como se comporta el sistema a cualquier $t$, cree un video de la solución.</p>
+
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/membrane/Membrane.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>Observamos que ambas partes de la membrana se comportan de manera muy similar, pero con la membrana flácida teniendo más restricción de movimiento. No es dificil notar que tanto la parte tensa y flácida quieren comportarse igual pero se le dificulta a la parte flácida seguir el ritmo de la tensa.</p>
+<p>Eso es todo por este proyecto! Puedes ver el jupyter notebook de este problema <a href="https://github.com/ricardoleal20/Personal-Projects/blob/master/Python/Jupyter%20Notebook/Membrane.ipynb">aquí</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="también-ver-en-python">
+        También ver en Python
+        <a class="heading-link" href="#tambi%c3%a9n-ver-en-python">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/">Simulación del flujo de tráfico con Python</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/">Simulación del vuelo de un cohete con Python</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2020 -
+        
+        2021
+         Ricardo M. Leal Lopez 
+      
+      
+      
+        
+        
+    </section>
+  </footer>  
+
+<script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+    </main>
+
+    
+      
+        
+        <script src="https://ricardoleal20.github.io/Blog/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

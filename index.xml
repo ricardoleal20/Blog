@@ -6,7 +6,21 @@
     <description>Recent content on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analysis of the tympanic membrane with the wave equation.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/</guid>
+      <description>Modeling the vibrational behavior in a isotropic model of the tympanic membrane.    The tympanic membrane is a structure that resides in our ear. The behavior of that little membrane can be modeled by the wave equation:
+\begin{equation} \frac{\partial^2 u}{\partial t^2}=c^2\frac{\partial^2u}{\partial x^2} \end{equation}
+This equation will be constrained by the values:
+\begin{equation} 0&amp;lt;x&amp;lt;l\hspace{2mm} \land\hspace{2mm} 0&amp;lt;t&amp;lt;t_f \end{equation}
+The boundary conditions of our system will be:
+\begin{equation} u(0,t)=u(l,t)=0 \hspace{2mm} \end{equation}</description>
+    </item>
+    
     <item>
       <title>Simulating the traffic flow with Python</title>
       <link>https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/</link>
