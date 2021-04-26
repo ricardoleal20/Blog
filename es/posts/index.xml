@@ -6,7 +6,20 @@
     <description>Recent content in Posts on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modelando una epidemia.</title>
+      <link>https://ricardoleal20.github.io/Blog/es/posts/epidemic/epidemic/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/posts/epidemic/epidemic/</guid>
+      <description>Modelo SIR    El modelo SIR es un conjunto de ecuaciones diferenciales que trabajan juntas. El sistema esta representado como:
+\begin{equation} \Large\begin{array}{c} \frac{dS}{dt}=-\beta SI \\\
+\frac{dI}{dt}=\beta SI-vI \\\
+\frac{dR}{dt}=vI \end{array} \end{equation}
+En estas ecuaciones $S$ son los individuos susceptibles, $I$ son los individuos infectados $R$ son los que ya se recuperaron. $\beta$ es la tasa de individuos por periodo que se infectaron $v$ es la tasa de individuos que se recuperaron.</description>
+    </item>
+    
     <item>
       <title>Análisis de la membrana timpanica con la ecuación de onda.</title>
       <link>https://ricardoleal20.github.io/Blog/es/posts/wave_membrane/wave_membrane/</link>
@@ -21,7 +34,7 @@ La condición de borde para nuestro sistema es:</description>
     </item>
     
     <item>
-      <title>Simulación del flujo de tráfico con Python</title>
+      <title>Simulación del flujo de tráfico con Python.</title>
       <link>https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/</link>
       <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
       
@@ -32,7 +45,7 @@ Podriamos definir la velocidad del tráfic, $V$, en kilometros por hora. Tambien
     </item>
     
     <item>
-      <title>Simulación del vuelo de un cohete con Python</title>
+      <title>Simulación del vuelo de un cohete con Python.</title>
       <link>https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
       

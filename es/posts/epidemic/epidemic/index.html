@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+  <div id="particles-js"></div>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="es">
+    
+
+    <meta name="author" content="Ricardo M. Leal Lopez">
+    <meta name="description" content="Resolviendo el modelo SIR.">
+    <meta name="keywords" content="Físico,Programador">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Modelando una epidemia."/>
+<meta name="twitter:description" content="Resolviendo el modelo SIR."/>
+
+    <meta property="og:title" content="Modelando una epidemia." />
+<meta property="og:description" content="Resolviendo el modelo SIR." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ricardoleal20.github.io/Blog/es/posts/epidemic/epidemic/" />
+<meta property="article:published_time" content="2021-02-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-24T00:00:00+00:00" /><meta property="og:site_name" content="Ricardo" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/es/posts/wave_membrane/wave_membrane/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/" />
+
+
+
+    <title>
+  Modelando una epidemia. · Ricardo
+</title>
+
+    
+      <link rel="canonical" href="https://ricardoleal20.github.io/Blog/es/posts/epidemic/epidemic/">
+    
+
+    <link rel="preload" href="https://ricardoleal20.github.io/Blog/fonts/forkawesome-webfont.woff2?v=1.1.7" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder.min.ec198d25949ddd79a670b1ead43ca88e0bc2c1343266d0df0a9eeb7f3f207777.css" integrity="sha256-7BmNJZSd3XmmcLHq1DyojgvCwTQyZtDfCp7rfz8gd3c=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder-dark.min.89c82b6022b96f77aeb521b240daec4f87ea029d84d1c78b8acd0735b91b3c92.css" integrity="sha256-icgrYCK5b3eutSGyQNrsT4fqAp2E0ceLis0HNbkbPJI=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/style.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ricardoleal20.github.io/Blog/es">
+      Ricardo
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/es/about/">Sobre mi</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/es/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/es/projects/">Proyectos</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/es/contact/">Contacto</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://ricardoleal20.github.io/Blog/es/posts/epidemic/epidemic/">
+              Modelando una epidemia.
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-02-24T00:00:00Z'>
+                February 24, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              5 minutos de lectura.
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/es/categories/python/">Python</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/es/tags/numerical-methods/">Numerical Methods</a>
+      <span class="separator">•</span>
+    <a href="https://ricardoleal20.github.io/Blog/es/tags/python/">Python</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="modelo-sir">
+  Modelo SIR
+  <a class="heading-link" href="#modelo-sir">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>El modelo SIR es un conjunto de ecuaciones diferenciales que trabajan juntas. El sistema esta representado como:</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+\frac{dS}{dt}=-\beta SI \\\<br>
+\frac{dI}{dt}=\beta SI-vI \\\<br>
+\frac{dR}{dt}=vI
+\end{array}
+\end{equation}</p>
+<p>En estas ecuaciones $S$ son los individuos susceptibles, $I$ son los individuos infectados $R$ son los que ya se recuperaron. $\beta$ es la tasa de individuos por periodo que se infectaron $v$ es la tasa de individuos que se recuperaron.</p>
+<p>Podemos notar que $\beta$ esta multplicando a $S$ y $I$, esto porque esta tasa depende de ambos valores, mientras $v$ solo multiplica a $I$. En este modelo, la población total es conservada (no existen muertes o nacimientos que cambien esto).</p>
+<p>Usare las siguientes librerias</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">import</span> matplotlib.pyplot <span style="color:#f00">as</span> plt
+<span style="color:#f00">import</span> numpy <span style="color:#f00">as</span> np
+<span style="color:#f00">from</span> numba <span style="color:#f00">import</span> njit
+<span style="color:#f00">from</span> jupyterthemes <span style="color:#f00">import</span> jtplot
+jtplot.style(theme=<span style="color:#87ceeb">&#39;monokai&#39;</span>)
+</code></pre></div><p>Podemos discretizar las ecuaciones con el método de Euler. Ese método nos dice que:</p>
+<p>\begin{equation}
+\frac{dx}{dt}\approx\frac{x_{i+1}-x_i}{\Delta t}
+\end{equation}</p>
+<p>En nuestro caso, el sistema de ecuaciones es:</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+S_{i+1}=S_i+\Delta t\left(\frac{dS}{dt}\right) \\\<br>
+I_{i+1}=I_i+\Delta t\left(\frac{dI}{dt}\right) \\\<br>
+R_{i+1}=R_i+\Delta t\left(\frac{dR}{dt}\right)
+\end{array}
+\end{equation}</p>
+<p>Usando las ecuaciones del modelo SIR, tenemos</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+S_{i+1}=S_i-\Delta t\beta S_iI_i \\\<br>
+I_{i+1}=I_i+\Delta t(\beta S_iI_i-vI_i) \\\<br>
+R_{i+1}=R_i+\Delta tvI_i
+\end{array}
+\end{equation}</p>
+<p>Podemos reescribir el sistema como:</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+S_{i+1}=S_i(1-\Delta t\beta I_i) \\\<br>
+I_{i+1}=I_i(1+\Delta t(\beta S_i-v)) \\\<br>
+R_{i+1}=R_i+\Delta tvI_i
+\end{array}
+\end{equation}</p>
+<p>Ahora ya esta discretizado el sistema. La siguiente función de Python lo puede resolver</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit() <span style="color:#0f0">#For solve the SIR model</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">sir</span>(N,dt,beta,v,S0,I0,R0):
+    S,I,R=IC(N,S0,I0,R0)
+    <span style="color:#f00">for</span> i in range(<span style="color:#f60">0</span>,N-<span style="color:#f60">1</span>):
+        S[i+<span style="color:#f60">1</span>]=S[i]*(<span style="color:#f60">1</span>-dt*beta*I[i])
+        I[i+<span style="color:#f60">1</span>]=I[i]*(<span style="color:#f60">1</span>+dt*(beta*S[i]-v))
+        R[i+<span style="color:#f60">1</span>]=R[i]+dt*v*I[i]
+    <span style="color:#f00">return</span> S,I,R
+
+@njit()
+<span style="color:#f00">def</span> <span style="color:#ff0">IC</span>(N,S0,I0,R0):
+    S=np.zeros(N)
+    I=np.zeros(N)
+    R=np.zeros(N)
+    <span style="color:#0f0">#Put the initial conditon for every system</span>
+    S[<span style="color:#f60">0</span>]=S0
+    I[<span style="color:#f60">0</span>]=I0
+    R[<span style="color:#f60">0</span>]=R0
+    <span style="color:#f00">return</span> S,I,R
+</code></pre></div><p>Ahora, podemos observar como se comporta nuestro sistema. Como el sistema es cerrado, eso nos dice que $N=S+I+R$ para cualquier $t$.</p>
+<p>Para observar como trabaja el sistema, podemos sugerir los siguientes valores:</p>
+<ul>
+<li>$N=10,000$</li>
+<li>$t_f=100$ days</li>
+<li>$I_0=10$</li>
+<li>$R_0=5$</li>
+<li>$S_0=N-I_0-R_0$</li>
+<li>$v=0.02$</li>
+<li>$\beta=0.00005$</li>
+</ul>
+<p>Nuestra condición $\beta$ nos dice que tanta gente ha sido infectada dependiendo del total de gente infectada. Por ejemplo, con $S_0$ y $I_0$, nosotros podemos saber que para el primer día, el número total de población que predecimos sera infectada es $\beta S_0I_0\approx 5$. Para el segundo día, usaremos $S_1$ y $I_1$ y calcularemos lo mismo.</p>
+<p>Sera el mismo caso para nuestra tasa $v$. Podemos observar la gráfica de la predicción</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">def</span> <span style="color:#ff0">graf</span>(S,I,R,N,t):
+    fig,axs=plt.subplots(figsize=(<span style="color:#f60">12</span>,<span style="color:#f60">7</span>))
+    <span style="color:#0f0">#Susceptible</span>
+    plt.plot(t,S, color=<span style="color:#87ceeb">&#39;gray&#39;</span>, label=<span style="color:#87ceeb">&#39;Susceptible&#39;</span>)
+    plt.fill_between(t,S,<span style="color:#f60">0</span>,color=<span style="color:#87ceeb">&#39;gray&#39;</span>,alpha=<span style="color:#f60">0.1</span>, interpolate=True)
+    <span style="color:#0f0">#Infected</span>
+    plt.plot(t,I, color=<span style="color:#87ceeb">&#39;red&#39;</span>, label=<span style="color:#87ceeb">&#39;Infected&#39;</span>)
+    plt.fill_between(t,I,S,where=(I&gt;S),color=<span style="color:#87ceeb">&#39;red&#39;</span>,alpha=<span style="color:#f60">0.1</span>, interpolate=True)
+    <span style="color:#0f0">#Recovered</span>
+    plt.plot(t,R, color=<span style="color:#87ceeb">&#39;yellow&#39;</span>, label=<span style="color:#87ceeb">&#39;Recovered&#39;</span>)
+    plt.fill_between(t,I,R,where=(R&gt;I),color=<span style="color:#87ceeb">&#39;yellow&#39;</span>,alpha=<span style="color:#f60">0.1</span>, interpolate=True)
+    <span style="color:#0f0">#Another things</span>
+    axs.spines[<span style="color:#87ceeb">&#39;top&#39;</span>].set_visible(False)
+    axs.spines[<span style="color:#87ceeb">&#39;right&#39;</span>].set_visible(False)
+    axs.set_xticks([t[i] <span style="color:#f00">for</span> i in range(int(N/<span style="color:#f60">5</span>),len(t),int(N/<span style="color:#f60">5</span>)-<span style="color:#f60">1</span>)])
+    axs.set_xticklabels([<span style="color:#87ceeb">&#39;{0:.0f} days&#39;</span>.format(t[i]) <span style="color:#f00">for</span> i in range(int(N/<span style="color:#f60">5</span>),len(t),int(N/<span style="color:#f60">5</span>)-<span style="color:#f60">1</span>)])
+    plt.xlim(t[<span style="color:#f60">0</span>],t[N-<span style="color:#f60">1</span>])
+    plt.ylim(<span style="color:#f60">0</span>,N)
+    plt.legend()
+    plt.grid(False)
+    plt.show()
+</code></pre></div><figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/Epidemic/SIR.png"/> 
+</figure>
+
+<p>La población susceptible decae rápidamente, mientras que los recuperados crecen mientras pasa los días y casi erradican a los infectados en 100 días. Esto es gracias a nuestras tasas $v$, $\beta$. Si disminuimos el valor de la tasa $v$ a $v=0.02$ y de $\beta$ a $\beta=0.00002$, tendremos el siguiente sistema:</p>
+<figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/Epidemic/SIR2.png"/> 
+</figure>
+
+<p>Ahora, la población tarda más en ser infetada y todavia tarda más en recuperarse. En este caso, probablemente se ocupen 200 días para controlar la epidemia.</p>
+<p>Es solo un ejemplo de como estos dos valores pueden cambiar completamente el comportamiento del sistema para darnos diferentes perspectivas. En los siguientes ejemplos, usare las tasas originales de $v$ y $\beta$.</p>
+<h2 id="modelo-sirs">
+  Modelo SIRS
+  <a class="heading-link" href="#modelo-sirs">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Ahora, supón que deseamos modelar una epidemia donde los individuos tienen una inmunidad temporal despues de infectarse. Podemos modificar el sistema de ecuaciones para hacer que la población de recuperados se vuelva susceptible.</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+\frac{dS}{dt}=-\beta SI+\gamma R \\\<br>
+\frac{dI}{dt}=\beta SI-vI \\\<br>
+\frac{dR}{dt}=vI-\gamma R
+\end{array}
+\end{equation}</p>
+<p>Añadimos un parametro $\gamma$ que representa la tasa de conversión de recuperados a susceptibles por periodo. Este modelo ahora se llama SIRS.</p>
+<p>Usando el método de Euler una vez más, tenemos:</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+S_{i+1}=S_i-\Delta t(\beta S_iI_i-\gamma R_i) \\\<br>
+I_{i+1}=I_i+\Delta t(\beta S_iI_i-vI_i) \\\<br>
+R_{i+1}=R_i+\Delta t(vI_i-\gamma R_i)
+\end{array}
+\end{equation}</p>
+<p>Reescribiendo las ecuaciones, tenemos:</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+S_{i+1}=S_i(1-\Delta t\beta I_i)+\Delta t\gamma R_i \\\<br>
+I_{i+1}=I_i(1+\Delta t(\beta S_i-v)) \\\<br>
+R_{i+1}=R_i(1-\Delta t\gamma)+\Delta tvI_i
+\end{array}
+\end{equation}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit()
+<span style="color:#f00">def</span> <span style="color:#ff0">sirs</span>(N,dt,beta,v,S0,I0,R0,gamma):
+    S,I,R=IC(N,S0,I0,R0)
+    <span style="color:#f00">for</span> i in range(<span style="color:#f60">0</span>,N-<span style="color:#f60">1</span>):
+        S[i+<span style="color:#f60">1</span>]=S[i]*(<span style="color:#f60">1</span>-dt*beta*I[i])+dt*gamma*R[i]
+        I[i+<span style="color:#f60">1</span>]=I[i]*(<span style="color:#f60">1</span>+dt*(beta*S[i]-v))
+        R[i+<span style="color:#f60">1</span>]=R[i]*(<span style="color:#f60">1</span>-dt*gamma)+dt*v*I[i]
+    <span style="color:#f00">return</span> S,I,R
+
+gamma=<span style="color:#f60">0.015</span> <span style="color:#0f0">#The rate of conversion from recovered to susceptible</span>
+S,I,R=sirs(N,dt,beta,v,S0,I0,R0,gamma)
+</code></pre></div><figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/Epidemic/SIRS.png"/> 
+</figure>
+
+<p>Ahora, con la conversión de recuperados a susceptibles podemos notar que el sistema no cambia mucho al original (SIR) al inicio. La población susceptible no llega a 0 y se vuelve más grande conforme pasan los días. Tambien podemos notar que la población infectada no decrese tanto debido a que seguira habiendo población susceptible para infectarse.</p>
+<h2 id="modelo-sirs-con-muertes-y-nacimientos">
+  Modelo SIRS con muertes y nacimientos.
+  <a class="heading-link" href="#modelo-sirs-con-muertes-y-nacimientos">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Ahora, si deseamos que durante nuestra pandemia existan nacimientos o la gente pueda morir (debido a la enfermedad o no), podemos modificar el sistema de ecuaciones una vez más, teniendo</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+\frac{dS}{dt}=\Lambda(S+I+R)-\beta SI+\gamma R-\mu S \\\<br>
+\frac{dI}{dt}=\beta SI-vI-\mu I \\\<br>
+\frac{dR}{dt}=vI-\gamma R-\mu R
+\end{array}
+\end{equation}</p>
+<p>donde $\Lambda$ es la tasa de nacimientos para nuestra población de ese momento (los cuales son $S,I$ y $R$, recordemos que ahora al existir nacimientos o muertes, no se mantiene cerrado el sistema y no se conserva $N$). Tambien añadimos $\mu$ que es la tasa de individuos que mueren. En este caso, fue puesta igual para los que estan infectados o no.</p>
+<p>Usando el método de Euler una vez más, tenemos:</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+S_{i+1}=S_i-\Delta t(\beta S_iI_i+\mu S_i-\gamma R_i-\Lambda(S_i+I_i+R_i)) \\\<br>
+I_{i+1}=I_i+\Delta t(\beta S_iI_i-vI_i-\mu I_i) \\\<br>
+R_{i+1}=R_i+\Delta t(vI_i-\gamma R_i-\mu R_i)
+\end{array}
+\end{equation}</p>
+<p>Podemos reescribir el sistema de ecuaciones como:</p>
+<p>\begin{equation}
+\Large\begin{array}{c}
+S_{i+1}=S_i(1-\Delta t(\beta I_i+\mu-\Lambda))+\Delta t(\gamma-\Lambda) R_i+\Delta t\Lambda I_i \\\<br>
+I_{i+1}=I_i(1+\Delta t(\beta S_i-v-\mu)) \\\<br>
+R_{i+1}=R_i(1-\Delta t(\gamma+\mu))+\Delta tvI_i
+\end{array}
+\end{equation}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit()
+<span style="color:#f00">def</span> <span style="color:#ff0">sirs_bd</span>(N,dt,beta,v,S0,I0,R0,gamma,lam,mu):
+    S,I,R=IC(N,S0,I0,R0)
+    <span style="color:#f00">for</span> i in range(<span style="color:#f60">0</span>,N-<span style="color:#f60">1</span>):
+        S[i+<span style="color:#f60">1</span>]=S[i]*(<span style="color:#f60">1</span>-dt*(beta*I[i]+mu-lam))+dt*(gamma-lam)*R[i]+dt*lam*I[i]
+        I[i+<span style="color:#f60">1</span>]=I[i]*(<span style="color:#f60">1</span>+dt*(beta*S[i]-v-mu))
+        R[i+<span style="color:#f60">1</span>]=R[i]*(<span style="color:#f60">1</span>-dt*(gamma+mu))+dt*v*I[i]
+    <span style="color:#f00">return</span> S,I,R
+
+lam=<span style="color:#f60">0.0001</span> <span style="color:#0f0">#The rate of new births</span>
+mu=<span style="color:#f60">0.008</span>   <span style="color:#0f0">#The rate for death</span>
+
+S,I,R=sirs_bd(N,dt,beta,v,S0,I0,R0,gamma,lam,mu)
+</code></pre></div><figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/Epidemic/SIRS_bd.png"/> 
+</figure>
+
+<p>Ahora en este caso, la población susceptible se mantiene casi igual que en el ejemplo pasado, pero los infectados y recuperados presentan una reducción alta. ¿Por qué sucede esto? Bueno, pues la población susceptible presenta un incremento de personas debido a los nacimientos $\Lambda$. Por otra parte, todas las poblaciones pueden restarse personas si mueren, eso gracias a la tasa $\mu$.</p>
+<p>¿Ahora lo ves? Solamente los individuos susceptibles presentan un incremento de personas a la vez que se le restan personas por muerte.</p>
+<p>Aún podemos agregar mucho más al modelo, como cambiar la tasa de muerte para infectados y hacerla distinta (que estar enfermo sea más probable que mate personas) o agregar detalles como personas nácidas y enfermas. Pero eso quedara para otro post.</p>
+<p>¡Eso es todo por este proyecto! Puedes ver el jupyter notebook de este problema <a href="https://github.com/ricardoleal20/Personal-Projects/blob/master/Python/Jupyter%20Notebook/SIR_modeling.ipynb">aquí</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="también-ver-en-python">
+        También ver en Python
+        <a class="heading-link" href="#tambi%c3%a9n-ver-en-python">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/es/posts/wave_membrane/wave_membrane/">Análisis de la membrana timpanica con la ecuación de onda.</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/es/posts/traffic-flow/traffic-flow/">Simulación del flujo de tráfico con Python.</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/es/posts/rocket-flight/rocket-flight/">Simulación del vuelo de un cohete con Python.</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2020 -
+        
+        2021
+         Ricardo M. Leal Lopez 
+      
+      
+      
+        
+        
+    </section>
+  </footer>  
+
+<script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+    </main>
+
+    
+      
+        
+        <script src="https://ricardoleal20.github.io/Blog/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

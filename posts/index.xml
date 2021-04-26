@@ -6,7 +6,20 @@
     <description>Recent content in Posts on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modeling an epidemic.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/</guid>
+      <description>SIR model    The SIR model is a couple of differential equations that work together. That system is
+\begin{equation} \Large\begin{array}{c} \frac{dS}{dt}=-\beta SI \\\
+\frac{dI}{dt}=\beta SI-vI \\\
+\frac{dR}{dt}=vI \end{array} \end{equation}
+In this equation, $S$ are the susceptible individuals, $I$ are the infected individuals and $R$ are the Recovered individuals. $\beta$ are the rate of individuals per period that become infected and $v$ are the rate of individuals per period that become recovered.</description>
+    </item>
+    
     <item>
       <title>Analysis of the tympanic membrane with the wave equation.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/</link>
@@ -22,7 +35,7 @@ The boundary conditions of our system will be:
     </item>
     
     <item>
-      <title>Simulating the traffic flow with Python</title>
+      <title>Simulating the traffic flow with Python.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/</link>
       <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
       
@@ -33,7 +46,7 @@ We can define the speed of traffic, $V$, in kilometers per hour. We can also def
     </item>
     
     <item>
-      <title>Simulating a rocket flight with Python</title>
+      <title>Simulating a rocket flight with Python.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
       
