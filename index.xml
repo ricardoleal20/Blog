@@ -93,7 +93,9 @@ pwd </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ricardoleal20.github.io/Blog/projects/</guid>
-      <description>Under construction, come back soon!</description>
+      <description>You can see every project that I made in this page. To see the project, you can click on each image added in their own project section.
+Simulate an epidemic with SIRS model.      
+This project is a web application that let the user define the value of some parameters and look how that works to solve the SIRS model. The project was done in Python and deploy in Heroku.</description>
     </item>
     
     <item>

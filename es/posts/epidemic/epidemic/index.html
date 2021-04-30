@@ -370,7 +370,7 @@ R_{i+1}=R_i+\Delta t(vI_i-\gamma R_i-\mu R_i)
 <p>Podemos reescribir el sistema de ecuaciones como:</p>
 <p>\begin{equation}
 \Large\begin{array}{c}
-S_{i+1}=S_i(1-\Delta t(\beta I_i+\mu-\Lambda))+\Delta t(\gamma-\Lambda) R_i+\Delta t\Lambda I_i \\\<br>
+S_{i+1}=S_i(1-\Delta t(\beta I_i+\mu-\Lambda))+\Delta t(\gamma+\Lambda) R_i+\Delta t\Lambda I_i \\\<br>
 I_{i+1}=I_i(1+\Delta t(\beta S_i-v-\mu)) \\\<br>
 R_{i+1}=R_i(1-\Delta t(\gamma+\mu))+\Delta tvI_i
 \end{array}
@@ -379,7 +379,7 @@ R_{i+1}=R_i(1-\Delta t(\gamma+\mu))+\Delta tvI_i
 <span style="color:#f00">def</span> <span style="color:#ff0">sirs_bd</span>(N,dt,beta,v,S0,I0,R0,gamma,lam,mu):
     S,I,R=IC(N,S0,I0,R0)
     <span style="color:#f00">for</span> i in range(<span style="color:#f60">0</span>,N-<span style="color:#f60">1</span>):
-        S[i+<span style="color:#f60">1</span>]=S[i]*(<span style="color:#f60">1</span>-dt*(beta*I[i]+mu-lam))+dt*(gamma-lam)*R[i]+dt*lam*I[i]
+        S[i+<span style="color:#f60">1</span>]=S[i]*(<span style="color:#f60">1</span>-dt*(beta*I[i]+mu-lam))+dt*(gamma+lam)*R[i]+dt*lam*I[i]
         I[i+<span style="color:#f60">1</span>]=I[i]*(<span style="color:#f60">1</span>+dt*(beta*S[i]-v-mu))
         R[i+<span style="color:#f60">1</span>]=R[i]*(<span style="color:#f60">1</span>-dt*(gamma+mu))+dt*v*I[i]
     <span style="color:#f00">return</span> S,I,R
@@ -395,7 +395,7 @@ S,I,R=sirs_bd(N,dt,beta,v,S0,I0,R0,gamma,lam,mu)
 <p>Ahora en este caso, la población susceptible se mantiene casi igual que en el ejemplo pasado, pero los infectados y recuperados presentan una reducción alta. ¿Por qué sucede esto? Bueno, pues la población susceptible presenta un incremento de personas debido a los nacimientos $\Lambda$. Por otra parte, todas las poblaciones pueden restarse personas si mueren, eso gracias a la tasa $\mu$.</p>
 <p>¿Ahora lo ves? Solamente los individuos susceptibles presentan un incremento de personas a la vez que se le restan personas por muerte.</p>
 <p>Aún podemos agregar mucho más al modelo, como cambiar la tasa de muerte para infectados y hacerla distinta (que estar enfermo sea más probable que mate personas) o agregar detalles como personas nácidas y enfermas. Pero eso quedara para otro post.</p>
-<p>¡Eso es todo por este proyecto! Puedes ver el jupyter notebook de este problema <a href="https://github.com/ricardoleal20/Personal-Projects/blob/master/Python/Jupyter%20Notebook/SIR_modeling.ipynb">aquí</a>.</p>
+<p>¡Eso es todo por este post! Puedes ver el jupyter notebook de este problema <a href="https://github.com/ricardoleal20/Personal-Projects/blob/master/Python/Jupyter%20Notebook/SIR_modeling.ipynb">aquí</a>.</p>
 
       </div>
 
