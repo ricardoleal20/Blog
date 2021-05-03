@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div id="particles-js"></div>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    
+
+    <meta name="author" content="Ricardo M. Leal Lopez">
+    <meta name="description" content="Use Python to solve numerically the heat equation.">
+    <meta name="keywords" content="Programmer, Physicist">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Solving the heat equation in 1D."/>
+<meta name="twitter:description" content="Use Python to solve numerically the heat equation."/>
+
+    <meta property="og:title" content="Solving the heat equation in 1D." />
+<meta property="og:description" content="Use Python to solve numerically the heat equation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/" />
+<meta property="article:published_time" content="2021-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-10T00:00:00+00:00" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/" />
+
+
+
+    <title>
+  Solving the heat equation in 1D. · Ricardo
+</title>
+
+    
+      <link rel="canonical" href="https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/">
+    
+
+    <link rel="preload" href="https://ricardoleal20.github.io/Blog/fonts/forkawesome-webfont.woff2?v=1.1.7" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder.min.ec198d25949ddd79a670b1ead43ca88e0bc2c1343266d0df0a9eeb7f3f207777.css" integrity="sha256-7BmNJZSd3XmmcLHq1DyojgvCwTQyZtDfCp7rfz8gd3c=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder-dark.min.89c82b6022b96f77aeb521b240daec4f87ea029d84d1c78b8acd0735b91b3c92.css" integrity="sha256-icgrYCK5b3eutSGyQNrsT4fqAp2E0ceLis0HNbkbPJI=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/style.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ricardoleal20.github.io/Blog/">
+      Ricardo
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://ricardoleal20.github.io/Blog/es/posts/heat_1d/heat_1d/">Español</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/">
+              Solving the heat equation in 1D.
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-03-10T00:00:00Z'>
+                March 10, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/categories/python/">Python</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/">Numerical Methods</a>
+      <span class="separator">•</span>
+    <a href="https://ricardoleal20.github.io/Blog/tags/python/">Python</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="solve-the-heat-equation">
+  Solve the Heat equation.
+  <a class="heading-link" href="#solve-the-heat-equation">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>A very know PDE is the heat equation. It&rsquo;s a very importan equation that describes the distribution of heat in a structure or space in a certain time.</p>
+<p>The PDE looks like this:</p>
+<p>\begin{equation}
+\frac{\partial T}{\partial t}=\alpha\frac{\partial^2T}{\partial x^2}+f(T)
+\end{equation}</p>
+<p>where $T$ is the temperature of the system, $\alpha$ is the thermal diffusion constant and $f(T)$ is a function that apply to our system.</p>
+<p>In this case, i&rsquo;m gonna simulate the temperature of a long bar in 1D. The bar had the following boundary conditions:</p>
+<p>\begin{equation}
+\frac{\partial T_0}{\partial x}=\frac{\partial T_L}{\partial x}=0
+\end{equation}</p>
+<p>The bar has a large of $L=70cm$, where the initial conditions are:</p>
+<p>\begin{equation}
+T^0=\hspace{3mm}\left\{\begin{array}{cc}
+400K &amp; 0cm\leq x\leq 10cm \\<br>
+10K &amp; 10cm&lt;x&lt;30cm \\<br>
+100K &amp; 30cm\leq x\leq 40cm\\<br>
+10K &amp; 40cm&lt;x&lt;60cm\\<br>
+400K &amp; 60cm\leq x\leq70cm
+\end{array}
+\right.\end{equation}</p>
+<p>I&rsquo;m going to solve the system for $t_F=30$ minutes. The $\alpha$ constant had a value of $0.01$.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">import</span> numpy <span style="color:#f00">as</span> np
+<span style="color:#f00">from</span> numba <span style="color:#f00">import</span> njit
+<span style="color:#f00">from</span> matplotlib.animation <span style="color:#f00">import</span> FuncAnimation
+<span style="color:#f00">import</span> pandas <span style="color:#f00">as</span> pd
+<span style="color:#f00">import</span> matplotlib.pyplot <span style="color:#f00">as</span> plt
+<span style="color:#f00">from</span> jupyterthemes <span style="color:#f00">import</span> jtplot
+jtplot.style(theme=<span style="color:#87ceeb">&#39;monokai&#39;</span>)
+</code></pre></div><h2 id="explicit-method">
+  Explicit Method
+  <a class="heading-link" href="#explicit-method">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>In this method, i&rsquo;m gonna solve the equations using a discretized version of the derivates. That is</p>
+<p>\begin{equation}
+\Large\begin{array}{cc}
+\frac{\partial T}{\partial t}\approx \frac{T_x^{t+1}-T_x^t}{\Delta t} &amp;
+\frac{\partial^2 T}{\partial x^2}\approx \frac{T_{x+1}^t-2T_{x}^t+T_{x-1}^t}{\Delta x^2}
+\end{array}
+\end{equation}</p>
+<p>Using this in our PDE, i had</p>
+<p>\begin{equation}
+\frac{T_x^{t+1}-T_x^t}{\Delta t}=\alpha\frac{T_{x+1}^t-2T_{x}^t+T_{x-1}^t}{\Delta x^2}+f(T)
+\end{equation}</p>
+<p>Using algebra, i had</p>
+<p>\begin{equation}
+T_x^{t+1}=T_x^t+k\left(T_{x+1}^t-2T_{x}^t+T_{x-1}^t+\frac{\Delta x^2}{\alpha} f(T)\right)
+\end{equation}</p>
+<p>where $k=\alpha\frac{\Delta t}{\Delta x^2}$. Using more algebra, i had</p>
+<p>\begin{equation}
+\frac{T_x^{t+1}-T_x^t}{\Delta t}=\alpha\frac{T_{x+1}^t-2T_{x}^t+T_{x-1}^t}{\Delta x^2}+f(T)
+\end{equation}</p>
+<p>Using algebra, i had</p>
+<p>\begin{equation}
+T_x^{t+1}=T_x^t+k\left(T_{x+1}^t-2T_{x}^t+T_{x-1}^t+\frac{\Delta x^2}{\alpha} f(T)\right)
+\end{equation}</p>
+<p>where $k=\alpha\frac{\Delta t}{\Delta x^2}$. Using more algebra, i had</p>
+<p>\begin{equation}
+T_x^{t+1}=(1-2k)T_x^t+k\left(T_{x+1}^t+T_{x-1}^t+\frac{\Delta x^2}{\alpha} f(T)\right)
+\end{equation}</p>
+<p>And that&rsquo;s all! Now, we only had to discretized our Neumman Boundary Conditions. That is:</p>
+<p>\begin{equation}
+\large\begin{array}{cc}
+\frac{\partial T_0}{\partial x}\approx\frac{T_{0}^t-T_{-1}^t}{\Delta x} &amp;
+\frac{\partial T_L}{\partial x}\approx\frac{T_{L+1}^t-T_{L}^t}{\Delta x} \\<br>
+\frac{T_{0}^t-T_{-1}^t}{\Delta x}=0 &amp; \frac{T_{L+1}^t-T_{L}^t}{\Delta x}=0 \\<br>
+T_0^t=T_{-1}^t &amp; T_{L+1}^t=T_{L}^t
+\end{array}
+\end{equation}</p>
+<p>That leave me the following equations to calculate $T_0$ and $T_L$</p>
+<p>\begin{equation}
+\begin{array}{c}
+T_0^{t+1}=(1-3k)T_0^t+k\left(T_{1}^t+\frac{\Delta x^2}{\alpha} f(T)\right) \\<br>
+T_L^{t+1}=(1-3k)T_L^t+k\left(T_{L-1}^t+\frac{\Delta x^2}{\alpha} f(T)\right)
+\end{array}
+\end{equation}</p>
+<p>Now, I can write the functions to solve this problem.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit()
+<span style="color:#f00">def</span> <span style="color:#ff0">explicit</span>(heat_0,Nx,Nt,k,dx,alpha):
+    T=IC(heat_0,Nx,Nt)
+    T=BC(T,<span style="color:#f60">0</span>,Nx,k,dx,alpha)
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">0</span>,Nt-<span style="color:#f60">1</span>):
+        <span style="color:#f00">for</span> i in range(<span style="color:#f60">0</span>,Nx-<span style="color:#f60">1</span>):
+            T[i,j+<span style="color:#f60">1</span>]=(<span style="color:#f60">1</span>-<span style="color:#f60">2</span>*k)*T[i,j]+k*(T[i+<span style="color:#f60">1</span>,j]+T[i-<span style="color:#f60">1</span>,j]+(dx**<span style="color:#f60">2</span>/alpha)*f(Nt))
+        T=BC(T,j,Nx,k,dx,alpha)
+    <span style="color:#f00">return</span> T
+
+@njit()
+<span style="color:#f00">def</span> <span style="color:#ff0">IC</span>(heat_0,Nx,Nt):
+    T=np.zeros((Nx,Nt))
+    <span style="color:#f00">for</span> i in range(Nx):
+        T[i,<span style="color:#f60">0</span>]=heat_0[i]
+    <span style="color:#f00">return</span> T
+@njit()
+<span style="color:#f00">def</span> <span style="color:#ff0">BC</span>(T,j,Nx,k,dx,alpha):
+    T[<span style="color:#f60">0</span>,j+<span style="color:#f60">1</span>]=(<span style="color:#f60">1</span>-k)*T[<span style="color:#f60">0</span>,j]+k*(T[<span style="color:#f60">1</span>,j]+(dx**<span style="color:#f60">2</span>/alpha)*f())
+    T[Nx-<span style="color:#f60">1</span>,j+<span style="color:#f60">1</span>]=(<span style="color:#f60">1</span>-k)*T[Nx-<span style="color:#f60">1</span>,j]+k*(T[Nx-<span style="color:#f60">2</span>,j]+(dx**<span style="color:#f60">2</span>/alpha)*f())
+    <span style="color:#f00">return</span> T
+</code></pre></div><p>Using a $f(T)=0$. I can solve the system now.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit
+<span style="color:#f00">def</span> <span style="color:#ff0">f</span>(Nt):
+    <span style="color:#f00">return</span> <span style="color:#f60">0</span>
+
+<span style="color:#0f0">#Values</span>
+tf=<span style="color:#f60">1800</span>
+L=<span style="color:#f60">70</span>
+alpha=<span style="color:#f60">0.01</span>
+<span style="color:#0f0">#Grid points</span>
+Nx=<span style="color:#f60">101</span>
+Nt=<span style="color:#f60">101</span>
+<span style="color:#0f0">#Arrays</span>
+t=np.linspace(<span style="color:#f60">0</span>,tf,Nt)
+x=np.linspace(<span style="color:#f60">0</span>,L,Nx)
+<span style="color:#0f0">#Make dt and dx</span>
+dt=tf/(Nt-<span style="color:#f60">1</span>)
+dx=L/(Nx-<span style="color:#f60">1</span>)
+
+<span style="color:#0f0">#Create the array for the initial condition</span>
+heat_0=np.zeros(Nx)
+<span style="color:#f00">for</span> i in range(Nx):
+    <span style="color:#f00">if</span> (x[i]&lt;=<span style="color:#f60">10</span>):
+        heat_0[i]=<span style="color:#f60">400</span>
+    <span style="color:#f00">elif</span> (<span style="color:#f60">10</span>&lt;x[i]&lt;<span style="color:#f60">30</span>):
+        heat_0[i]=<span style="color:#f60">10</span>
+    <span style="color:#f00">elif</span> (<span style="color:#f60">30</span>&lt;=x[i]&lt;=<span style="color:#f60">40</span>):
+        heat_0[i]=<span style="color:#f60">100</span>
+    <span style="color:#f00">elif</span> (<span style="color:#f60">40</span>&lt;x[i]&lt;<span style="color:#f60">60</span>):
+        heat_0[i]=<span style="color:#f60">10</span>
+    <span style="color:#f00">else</span>:
+        heat_0[i]=<span style="color:#f60">400</span>
+
+<span style="color:#0f0">#Check k</span>
+k=alpha*(dt/dx**<span style="color:#f60">2</span>)
+<span style="color:#f00">print</span>(<span style="color:#87ceeb">&#39;The value of the CFL constant is k={0:.4f}&#39;</span>.format(k))
+</code></pre></div><p>We can see tht with only 101 grid points for $t$, our CFL constant is $k=0.3673$.</p>
+<p>Like is the heat equation, we need a $k&lt;0.5$ if we want it stable. In this case, it&rsquo;s good. If you call the function <strong>explicit</strong> and after that, you plot the result, you will get this</p>
+<figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/heat_1d/t1.png"/> 
+</figure>
+
+<p>Also, I create an animate plot to observe better the results.</p>
+
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/heat_1d/Temperature_profile.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>In the video, we can see that our system need more time to stabilize. If we want to simulate more time, like $60$ minutes, we can use more grid points to make it stable.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Nt=<span style="color:#f60">301</span>
+tf=<span style="color:#f60">1</span>*<span style="color:#f60">3600</span>
+<span style="color:#0f0">#Arrays</span>
+t=np.linspace(<span style="color:#f60">0</span>,tf,Nt)
+<span style="color:#0f0">#Make dt and dx</span>
+dt=tf/(Nt-<span style="color:#f60">1</span>)
+
+<span style="color:#0f0">#Check k</span>
+k=alpha*(dt/dx**<span style="color:#f60">2</span>)
+</code></pre></div><p>This gives a $k=0.2449$. The results of the simulation are shown in the next video.</p>
+
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/heat_1d/Temperature_profile2.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>It&rsquo;s a great way to compute large simulations, but if we use more grid points that mean that we need to use more memory to solve the equation.</p>
+<h2 id="implicit-method">
+  Implicit method
+  <a class="heading-link" href="#implicit-method">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Exist other scheme that I can use to compute the PDE. This scheme is called <strong>Implicit</strong> and it&rsquo;s numerically stable so we don&rsquo;t need a $k&lt;0.5$ to sure the stability of the system.</p>
+<p>In this method, we can use the following discretization for the derivates</p>
+<p>\begin{equation}
+\Large\begin{array}{cc}
+\frac{\partial T}{\partial t}\approx \frac{T_x^{t+1}-T_x^t}{\Delta t} &amp;
+\frac{\partial^2 T}{\partial x^2}\approx \frac{T_{x+1}^{t+1}-2T_{x}^{t+1}+T_{x-1}^{t+1}}{\Delta x^2}
+\end{array}
+\end{equation}</p>
+<p>So, with this discretization, our PDE is</p>
+<p>\begin{equation}
+\frac{T_x^{t+1}-T_x^t}{\Delta t}=\alpha\frac{T_{x+1}^{t+1}-2T_{x}^{t+1}+T_{x-1}^{t+1}}{\Delta x^2}+f(T)
+\end{equation}</p>
+<p>Using algebra, I had</p>
+<p>\begin{equation}
+T_{x}^{t}=(1+2k)T_x^{t+1}-k(T_{x+1}^{t+1}+T_{x-1}^{t+1}+\Delta x^2f(T))
+\end{equation}</p>
+<p>We can express this system as a matrix. I can express the system as</p>
+<p>\begin{equation}
+T_{x}^{t}=-kT_{x+1}^{t+1}+(1+2k)T_x^{t+1}-kT_{x-1}^{t+1}-k\frac{\Delta x^2}{\alpha}f(T)
+\end{equation}</p>
+<p>I can express this as a matrix. The system it&rsquo;s gonna be</p>
+<p>\begin{equation}
+AT_x^{t+1}-k\frac{\Delta x^2}{\alpha}f(T)=b
+\end{equation}</p>
+<p>Where $b=(T_0^{t},T_1^{t},T_3^{t},\cdots,T_x^t)$ while A is</p>
+<p>\begin{equation}
+\begin{array}{c}
+A(i,i-1)=-k \\<br>
+A(i,i)=1+2k \\<br>
+A(i.i+1)=-k
+\end{array}
+\end{equation}</p>
+<p>Where $A(0,0)=A(x,x)=1$, this to get a stable tridiagonal matrix. So, our final expresion is:</p>
+<p>\begin{equation}
+\begin{bmatrix}
+A_{0,0} &amp; A_{0,1} &amp; &amp; &amp; 0 \\<br>
+A_{1,0} &amp; A_{1,1} &amp; A_{1,2} &amp; &amp;  \\<br>
+&amp; A_{2,1} &amp; A_{2,2} &amp; \ddots &amp; \\<br>
+&amp; &amp; \ddots &amp; \ddots &amp; A_{x-1,x} \\<br>
+0 &amp; &amp; &amp; A_{x,x-1} &amp; A_{x,x}
+\end{bmatrix}
+\left.
+\begin{bmatrix}
+T_1^{t+1} \\<br>
+T_2^{t+1} \\<br>
+T_3^{t+1} \\<br>
+\vdots \\<br>
+T_x^{t+1}
+\end{bmatrix}
+\right. -k\frac{\Delta x^2}{\alpha}f(T)
+=\begin{bmatrix}
+T_1^{t} \\<br>
+T_2^{t} \\<br>
+T_3^{t} \\<br>
+\vdots \\<br>
+T_x^{t}
+\end{bmatrix}
+\end{equation}</p>
+<p>With this, I can code the PDE.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#0f0">#Function to create the matrix A</span>
+@njit
+<span style="color:#f00">def</span> <span style="color:#ff0">matrixA</span>(Nx,k):
+    A=np.zeros((Nx,Nx))
+    <span style="color:#0f0">#Loop to calculate the values of A</span>
+    <span style="color:#f00">for</span> i in range(<span style="color:#f60">1</span>,Nx-<span style="color:#f60">1</span>):
+        A[i,i-<span style="color:#f60">1</span>]=-k
+        A[i,i]=<span style="color:#f60">1</span>+<span style="color:#f60">2</span>*k
+        A[i,i+<span style="color:#f60">1</span>]=-k
+    <span style="color:#0f0">#Boundary conditions for the matrix A</span>
+    A[<span style="color:#f60">0</span>,<span style="color:#f60">0</span>]=<span style="color:#f60">1</span>
+    A[Nx-<span style="color:#f60">1</span>,Nx-<span style="color:#f60">1</span>]=<span style="color:#f60">1</span>
+    <span style="color:#f00">return</span> A
+
+<span style="color:#0f0">#Function to solve the system A*T=b</span>
+@njit
+<span style="color:#f00">def</span> <span style="color:#ff0">solution</span>(T,A):
+    <span style="color:#0f0">#Create the matrix b with the current values</span>
+    b=T.copy()
+
+    <span style="color:#0f0">#Use a command of numpy to solve A*T=b</span>
+    T=np.linalg.solve(A,b)
+
+    <span style="color:#f00">return</span> T
+
+<span style="color:#0f0">#function to solve all the equation</span>
+@njit
+<span style="color:#f00">def</span> <span style="color:#ff0">implicit</span>(heat_0,Nx,Nt,k,dx,alpha):
+    <span style="color:#0f0">#Create the matrix solution T and add some values</span>
+    T=IC(heat_0,Nx,Nt)
+    T=BC(T,<span style="color:#f60">0</span>,Nx,k,dx,alpha)
+    <span style="color:#0f0">#Now, call the function to create the matrix A</span>
+    A=matrixA(Nx,k)
+    <span style="color:#0f0">#Now, the loop to get the solution</span>
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">0</span>,Nt-<span style="color:#f60">1</span>):
+        T[:,j+<span style="color:#f60">1</span>]=solution(T[:,j],A)-k*(dx**<span style="color:#f60">2</span>/alpha)*f(Nt)
+        <span style="color:#0f0">#Get sure that the BC still exist</span>
+        T=BC(T,j,Nx,k,dx,alpha)
+    <span style="color:#f00">return</span> T
+</code></pre></div><p>Now, using the original values for the system, I can call the function <em>implicit</em> and look the results.</p>
+<figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/heat_1d/t2.png"/> 
+</figure>
+
+<p>It works! It&rsquo;s no more faster that the Explicit Method, but it&rsquo;s more stable and accurate. If we want to simulate 60 minutes, we just need to update our values $k$.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Nt=<span style="color:#f60">101</span>
+tf=<span style="color:#f60">1</span>*<span style="color:#f60">3600</span>
+<span style="color:#0f0">#Arrays</span>
+t=np.linspace(<span style="color:#f60">0</span>,tf,Nt)
+<span style="color:#0f0">#Make dt and dx</span>
+dt=tf/(Nt-<span style="color:#f60">1</span>)
+
+<span style="color:#0f0">#Check k</span>
+k=alpha*(dt/dx**<span style="color:#f60">2</span>)
+</code></pre></div><p>Now, the value of $k$ is $k=0.7347$. It bigger that the requestes $k\leq0.5$. If i create an animate plot, how it gonna look?</p>
+
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/heat_1d/Temperature_profile3.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>The video goes faster that the done with the explicit method, the reason is really simple.</p>
+<p>When I simulate the 60 minutes with the explicit method, I have to use more grid points ($N_t$=301). But with the implicit method, i can use only the first $N_t=101$ grid points and takes less moments to simulate. So, when I create the video, with the explicit method I have more frames per video, when with the implicit i have less frames per video.</p>
+<p>For example, I want to simulate 2 hours of the system (120 minutes), I would need a minimun of $N_t=295$ with the explicit method but with the implicit I only need $N_t=101$. Let have a look</p>
+
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/heat_1d/Temperature_profile4.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>It also works! It&rsquo;s an advantage of the implicit scheme. And now, we can play with this model! For example, suppose that the extrems of my bar are attached to a heater. In the middle, the bar has a cooler. This system is</p>
+<p>\begin{equation}
+T=\hspace{3mm}\left\{\begin{array}{cc}
+400K &amp; 0cm\leq x\leq 10cm \\<br>
+100K &amp; 30cm\leq x\leq 40cm\\<br>
+400K &amp; 60cm\leq x\leq70cm
+\end{array}
+\right. \text{ for every t.}\end{equation}</p>
+<p>For this, i just need to create the next function</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit()
+<span style="color:#f00">def</span> <span style="color:#ff0">gradient</span>(T,j,heat_0):
+    <span style="color:#f00">for</span> i in range(Nx):
+        <span style="color:#f00">if</span> (heat_0[i]&gt;<span style="color:#f60">10</span>):
+            T[i,j]=heat_0[i]
+    <span style="color:#f00">return</span> T
+</code></pre></div><p>Also, i need to modify one of the Python function to solve the system. I choose the implicit method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@njit()
+<span style="color:#f00">def</span> <span style="color:#ff0">implicit_gradient</span>(heat_0,Nx,Nt,k,dx,alpha):
+    <span style="color:#0f0">#Create the matrix solution T and add some values</span>
+    T=IC(heat_0,Nx,Nt)
+    <span style="color:#0f0">#Now, call the function to create the matrix A</span>
+    A=matrixA(Nx,k)
+    <span style="color:#0f0">#Now, the loop to get the solution</span>
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">0</span>,Nt-<span style="color:#f60">1</span>):
+        T[:,j+<span style="color:#f60">1</span>]=solution(T[:,j],A)-k*(dx**<span style="color:#f60">2</span>/alpha)*f()
+        <span style="color:#0f0">#Use the funtion to plot the others results</span>
+        T=gradient(T,j+<span style="color:#f60">1</span>,heat_0)
+    <span style="color:#f00">return</span> T
+</code></pre></div><p>And results in the next</p>
+
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/heat_1d/Temperature_profile5.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>That&rsquo;s all for this post! You can check the jupyter notebook from this problem <a href="https://github.com/ricardoleal20/Personal-Projects/blob/master/Python/Jupyter%20Notebook/Heat_Equation.ipynb">here</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="see-also-in-python">
+        See also in Python
+        <a class="heading-link" href="#see-also-in-python">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/">Modeling an epidemic.</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/">Analysis of the tympanic membrane with the wave equation.</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/">Simulating the traffic flow with Python.</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/">Simulating a rocket flight with Python.</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2020 -
+        
+        2021
+         Ricardo M. Leal Lopez 
+      
+      
+      
+        
+        
+    </section>
+  </footer>  
+
+<script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+    </main>
+
+    
+      
+        
+        <script src="https://ricardoleal20.github.io/Blog/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

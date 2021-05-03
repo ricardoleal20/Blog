@@ -6,7 +6,19 @@
     <description>Recent content in Python on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solving the heat equation in 1D.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/</guid>
+      <description>Solve the Heat equation.    A very know PDE is the heat equation. It&amp;rsquo;s a very importan equation that describes the distribution of heat in a structure or space in a certain time.
+The PDE looks like this:
+\begin{equation} \frac{\partial T}{\partial t}=\alpha\frac{\partial^2T}{\partial x^2}+f(T) \end{equation}
+where $T$ is the temperature of the system, $\alpha$ is the thermal diffusion constant and $f(T)$ is a function that apply to our system.</description>
+    </item>
+    
     <item>
       <title>Modeling an epidemic.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/</link>
