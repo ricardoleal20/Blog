@@ -6,7 +6,34 @@
     <description>Recent content in Numerical Methods on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Optimization of a snow ball problem.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/snowball/snowball/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/snowball/snowball/</guid>
+      <description>Snowball Rolling    Suppose that we had a inclinated plane with a snowball in the higher zone. At the end onf that plane, there is a tree that requires a force of $25000N$ to get broke. The equations for the dynamics moves of the snowball are:
+\begin{equation} \Large\begin{array}{c} \frac{dm}{dt}=\beta K_0e^{-\beta t} \\
+\frac{dr}{dt}=\frac{\beta K_0e^{-\beta t}}{4\pi\rho r^2} \\
+\frac{dx}{dt}=v \\
+\frac{dv}{dt}=-\frac{15\rho_aC_d}{56\rho}\frac{v^2}{r}-\frac{23v}{7r}\frac{\beta K_0e^{-\beta t}}{4\pi\rho r^2}+\frac{5}{7}gsin(\theta) \end{array} \end{equation}
+While the impact force is $F=\frac{K_E}{r}$, where $K_E$ is the kinetic energy.</description>
+    </item>
+    
+    <item>
+      <title>Traffic flow with SciPy.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/</link>
+      <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/</guid>
+      <description>Traffic flow, revisited    As we can remember, on the first codes that I made for this blog was Traffic Flow, which had the following conservaton law
+\begin{equation} \frac{\partial \rho}{\partial t}+\frac{\partial F}{\partial x}=0 \end{equation}
+where $F$ is the flux, $F=\rho u$. We can remember that a linear relation between the traffic speed and traffic density can be:
+\begin{equation} F(\rho)=\rho u_{max}\left(1-\frac{\rho}{\rho_{max}}\right) \end{equation}
+This flux model meets the two requirements, based on a qualitative view of traffic flow, that:</description>
+    </item>
+    
     <item>
       <title>Solving the heat equation in 1D.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/</link>

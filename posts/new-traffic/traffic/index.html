@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div id="particles-js"></div>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    
+
+    <meta name="author" content="Ricardo M. Leal Lopez">
+    <meta name="description" content="Solve the traffic flow equation.">
+    <meta name="keywords" content="Programmer, Physicist">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Traffic flow with SciPy."/>
+<meta name="twitter:description" content="Solve the traffic flow equation."/>
+
+    <meta property="og:title" content="Traffic flow with SciPy." />
+<meta property="og:description" content="Solve the traffic flow equation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/" />
+<meta property="article:published_time" content="2021-03-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-21T00:00:00+00:00" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/snowball/snowball/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/" />
+
+
+
+    <title>
+  Traffic flow with SciPy. · Ricardo
+</title>
+
+    
+      <link rel="canonical" href="https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/">
+    
+
+    <link rel="preload" href="https://ricardoleal20.github.io/Blog/fonts/forkawesome-webfont.woff2?v=1.1.7" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder.min.ec198d25949ddd79a670b1ead43ca88e0bc2c1343266d0df0a9eeb7f3f207777.css" integrity="sha256-7BmNJZSd3XmmcLHq1DyojgvCwTQyZtDfCp7rfz8gd3c=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder-dark.min.89c82b6022b96f77aeb521b240daec4f87ea029d84d1c78b8acd0735b91b3c92.css" integrity="sha256-icgrYCK5b3eutSGyQNrsT4fqAp2E0ceLis0HNbkbPJI=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/style.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ricardoleal20.github.io/Blog/">
+      Ricardo
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://ricardoleal20.github.io/Blog/es/posts/new-traffic/traffic/">Español</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/">
+              Traffic flow with SciPy.
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-03-21T00:00:00Z'>
+                March 21, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              8-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/categories/python/">Python</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/">Numerical Methods</a>
+      <span class="separator">•</span>
+    <a href="https://ricardoleal20.github.io/Blog/tags/python/">Python</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="traffic-flow-revisited">
+  Traffic flow, revisited
+  <a class="heading-link" href="#traffic-flow-revisited">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>As we can remember, on the first codes that I made for this blog was Traffic Flow, which had the following conservaton law</p>
+<p>\begin{equation}
+\frac{\partial \rho}{\partial t}+\frac{\partial F}{\partial x}=0
+\end{equation}</p>
+<p>where $F$ is the flux, $F=\rho u$. We can remember that a linear relation between the traffic speed and traffic density can be:</p>
+<p>\begin{equation}
+F(\rho)=\rho u_{max}\left(1-\frac{\rho}{\rho_{max}}\right)
+\end{equation}</p>
+<p>This flux model meets the two requirements, based on a qualitative view of traffic flow, that:</p>
+<ul>
+<li>$u\rightarrow u_{max}$ and $F\rightarrow 0$ when $\rho=0$</li>
+<li>$u\rightarrow0$ as $\rho\rightarrow \rho_{max}$</li>
+</ul>
+<p>However, it leads to some unrealistic or at least improbable results. For example, note that if the traffic speed is a linear function of density, the flux function will be quadratic. In this case, the maximum flux will occur when $\rho^*=\rho_{max}/2$, corresponding to a traffic speed $u_{max}/2$.</p>
+<p>A good question to ask here is: should the maximum flux on a given stretch of road have a strict dependence on the maximum speed that the roadway allows, be it by physical restrictions or posted speed limits? In other words, do we really expect the maximum flux to increase if we allow arbitrarily high speeds?</p>
+<p>Probably not. but there should be some ideal traffic speed, u^<em>, corresponding to an ideal traffic density, $\rho^</em>$, resulting in the maximum traffic flux</p>
+<p>\begin{equation}
+F_{max}=\rho^*u^*
+\end{equation}</p>
+<p>Let us improve the initial flux model by taking this observation into account. One thing that we can try is to introduce a flux model that is cubic in $\rho$ instead of quadratic:</p>
+<p>\begin{equation}
+F(\rho)=u_{max}\rho(1-A\rho-B\rho^2)
+\end{equation}</p>
+<p>This new model still meets the first criterion listed above: $F\rightarrow 0$ when $\rho\rightarrow 0$. Moreover, we impose the following conditions:</p>
+<ul>
+<li>When $\rho=\rho_{max}$ traffic flux goes to zero:</li>
+</ul>
+<p>\begin{equation}
+F(\rho_{max})=0=u_{max}\rho_{max}(1-A\rho_{max}-B\rho^2_{max})
+\end{equation}</p>
+<ul>
+<li>Based on the equation of $F_{max}$, maximum flux occurs when $\rho=\rho^*$ and $F'(\rho^*)=0$:</li>
+</ul>
+<p>\begin{equation}
+F'(\rho^*)=0=u_{max}(1-2A\rho^*-3B(\rho^*)^2)
+\end{equation}</p>
+<ul>
+<li>We have that $u^<em>$ is obtained when $\rho=\rho^</em> $:</li>
+</ul>
+<p>\begin{equation}
+u^*=u_{max}(1-A\rho^*-B(\rho^*)^2)
+\end{equation}</p>
+<p>We have three equations and four unknowns $A,B,\rho^<em>,u^</em>$. However, in practice, the ideal traffic speed could be obtained for a given road by observations. Similarly to $u_{max}$ and $\rho_{max}$ it will therefore be taken as a parameter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">import</span> numpy <span style="color:#f00">as</span> np
+<span style="color:#f00">import</span> sympy <span style="color:#f00">as</span> sympy
+<span style="color:#f00">import</span> pandas <span style="color:#f00">as</span> pd
+<span style="color:#f00">import</span> matplotlib.pyplot <span style="color:#f00">as</span> plt
+<span style="color:#f00">from</span> matplotlib.animation <span style="color:#f00">import</span> FuncAnimation
+<span style="color:#f00">from</span> numba <span style="color:#f00">import</span> njit, vectorize, float64
+<span style="color:#f00">from</span> jupyterthemes <span style="color:#f00">import</span> jtplot
+jtplot.style(theme=<span style="color:#87ceeb">&#39;monokai&#39;</span>)
+</code></pre></div><h3 id="solving-the-flux-equation">
+  Solving the flux equation
+  <a class="heading-link" href="#solving-the-flux-equation">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>I can use SymPy, a library of Python that use LaTex for printing and solving several calculations. I&rsquo;m gonna use it for discretize my equations. First of all, i&rsquo;m gonna create <em>symbols</em> to use it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sympy.init_printing()
+
+(u_max,u_star,rho_max,rho_star,A,B)=sympy.symbols(<span style="color:#87ceeb">&#39;u_max u_star rho_max rho_star A B&#39;</span>)
+</code></pre></div><p>Now I can use <em>u_max</em> and the others as a symbols, that means that Python doesn&rsquo;t gonna take it as a variable. Now, we can proceed to create the equations. In this case, these can be created using <em>sympy.Eq()</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eq1=sympy.Eq(u_max*rho_max*(<span style="color:#f60">1</span>-A*rho_max-B*rho_max**<span style="color:#f60">2</span>),<span style="color:#f60">0</span>)
+eq2=sympy.Eq(u_max*(<span style="color:#f60">1</span>-<span style="color:#f60">2</span>*A*rho_star-<span style="color:#f60">3</span>*B*rho_star**<span style="color:#f60">2</span>),<span style="color:#f60">0</span>)
+eq3=sympy.Eq(u_max*(<span style="color:#f60">1</span>-A*rho_star-B*rho_star**<span style="color:#f60">2</span>),u_star)
+</code></pre></div><p>It&rsquo;s time to check the inputs to see if we create correctly the equations.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eq1
+</code></pre></div><p>\begin{equation}
+\rho_{max}u_{max}(-A\rho_{max}-B\rho_{max}^2+1)=0
+\end{equation}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eq2
+</code></pre></div><p>\begin{equation}
+u_{max}(2-A\rho_{star}-3B\rho_{star}^2+1)=0
+\end{equation}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eq3
+</code></pre></div><p>\begin{equation}
+u_max(-A\rho_{star}-B\rho_{star}^2+1)=u_{star}
+\end{equation}</p>
+<p>Once we check that the equations are correct, it&rsquo;s time to use it to do some algebraic moves. If we had a value for $u_{star}$ (that it is $u^*$), then i&rsquo;m only have three unknowns and three equations, so it is possible to solve.</p>
+<p>Looking the <em>eq2</em> and <em>eq3</em>, we see that $A$ and $B$ had a common denominator, so we can elimiate $B$ from <em>eq2</em> if we subtract <em>3eq3</em>.</p>
+<p>This can be made it creatin a new equation and using the parameters <em>lhs</em> (Left-Hand Side) and <em>rhs</em> (Right-Hand Side). This is</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eq4=sympy.Eq(eq2.lhs-<span style="color:#f60">3</span>*eq3.lhs,eq2.rhs-<span style="color:#f60">3</span>*eq3.rhs)
+eq4
+</code></pre></div><p>\begin{equation}
+u_{max}(2-A\rho_{star}-3B\rho_{star}^2+1)-3u_max(-A\rho_{star}-B\rho_{star}^2+1)=-3u_{star}
+\end{equation}</p>
+<p>This is not exactly what we wanted, but SymPy offers a method to reduce the expression, and that is <em>simplify()</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eq4.simplify()
+</code></pre></div><p>\begin{equation}
+3u_{star}=-u_{max}(A\rho_{star}-2)
+\end{equation}</p>
+<p>We now have an idea of what to do with our three equations. We&rsquo;ll get expressions in term of A from <em>eq4</em> and <em>eq1</em> and substitute them back into <em>eq2</em>. For that, we can use the SympY functions <em>solve()</em> and <em>subs()</em>. the arguments to <em>solve()</em> are the equality that needs to be solved, and the symbol to solve for.</p>
+<p>I need to clarify that <em>solve()</em> returns the result in a list, as you can get multiple solutions for a given variable. As we have linear equations this will only return one solution so we ask right away for the first term in the list.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rho_sol=sympy.solve(eq4,rho_star)[<span style="color:#f60">0</span>]
+rho_sol
+</code></pre></div><p>\begin{equation}
+\frac{2u_{max}-3u_{star}}{Au_{max}}
+\end{equation}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B_sol=sympy.solve(eq1,B)[<span style="color:#f60">0</span>]
+B_sol
+</code></pre></div><p>\begin{equation}
+\frac{-A\rho_{max}+1}{\rho_{max}^2}
+\end{equation}</p>
+<p>Okey, now we have the solution to <em>rho_sol</em> and <em>B</em>. We can use now the function <em>subs()</em>. This function had the arguments as (old,new) where the new expression substitutes the old one. In this time, if we use <em>eq2.subs()</em> we can substitute $\rho_{star}$ with *rho_sol* and substitute $B$ with *B_sol*.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">quadA=eq2.subs([(rho_star,rho_sol),(B,B_sol)])
+quadA.simplify()
+</code></pre></div><p>\begin{equation}
+3u_{max}-6u_{star}-\frac{3(2u_{max}-3u_{star})^2}{A\rho_{max}u_{max}}+\frac{3(2u_{max}-3u_{star})^2}{A^2\rho_{max}u_{max}}=0
+\end{equation}</p>
+<p>This expression is now a little bit ugly but is quadratic in A, so that means that we can solve for the roots of the equations. Let see the solution</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">A_sol=sympy.solve(quadA,A)
+A_sol[<span style="color:#f60">0</span>]
+</code></pre></div><p>\begin{equation}
+\frac{\sqrt{-u_{star}(4u_{max}-9u_{star})}(-2u_{max}+3u_{star})+(2u_{max}-3u_{star})^2}{2\rho_{max}u_{max}(u_{max}-2u_{star})}
+\end{equation}</p>
+<p>This time, it had two solutions for the equation, so we can see the second one.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">A_sol[<span style="color:#f60">1</span>]
+</code></pre></div><p>\begin{equation}
+\frac{(2u_{max}-3u_{star})\left(2u_{max}-3u_{star}+\sqrt{-u_{star}(4u_{max}-9u_{star})}\right)}{2\rho_{max}u_{max}(u_{max}-2u_{star})}
+\end{equation}</p>
+<p>It&rsquo;s the same but with some algebraic differences.</p>
+<h3 id="evaluating-the-new-flux-equation">
+  Evaluating the new flux equation.
+  <a class="heading-link" href="#evaluating-the-new-flux-equation">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Quadratic equations, of course, have two solutions. Here we have to select the positive root, otherwise our model would have an inconsistency. Are you able to see why? To determine its value, we need to fill in some actual numbers into the model.</p>
+<p>I&rsquo;ll use the initial values that i use in the first time that I solve this equation using Finite Difference. That values are:</p>
+<ul>
+<li>$\rho_{max}=10$</li>
+<li>$u_{max}=1$</li>
+<li>$u^*=0.7u_{max}$</li>
+</ul>
+<p>I propose $u^*=0.7u_{max}$ to solve the equation. This would correspond to 84 km/h for a highway with a 120 km/h speed limit, for example.</p>
+<p>Using the expression that we get for <em>A_sol</em>, i can use the function <em>evalf()</em> to do a numeric substitution. Using the first solution of the list, I get</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">A_val_0=A_sol[<span style="color:#f60">0</span>].evalf(subs={u_max:<span style="color:#f60">1</span>, u_star:<span style="color:#f60">0.7</span>*u_max, rho_max:<span style="color:#f60">10.0</span>})
+A_val_0
+</code></pre></div><p>\begin{equation}
+A=-0.0171107219255619
+\end{equation}</p>
+<p>That a solution for the quadratic equations. But that had two solutions. If we use the second solution of the list $[1]$, let see what values gives us</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">A_val_1=A_sol[<span style="color:#f60">1</span>].evalf(subs={u_max:<span style="color:#f60">1</span>, u_star:<span style="color:#f60">0.7</span>*u_max, rho_max:<span style="color:#f60">10.0</span>})
+A_val_1
+</code></pre></div><p>\begin{equation}
+A=0.0146107219255619
+\end{equation}</p>
+<p>Well, this is bigger and positive. Since the two values are solution for the quadratic equation, i&rsquo;m gonna use the second one, so i have $A=0.0146$. Now i can use it to solve $B$.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B_val=B_sol.evalf(subs={rho_max:<span style="color:#f60">10</span>,A:A_val_1})
+B_val
+</code></pre></div><p>\begin{equation}
+B=0.00853892780744381
+\end{equation}</p>
+<p>This is our value for B.</p>
+<h3 id="turn-off-latex">
+  Turn off LaTex.
+  <a class="heading-link" href="#turn-off-latex">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>LaTex is great for analytical solutions and when we&rsquo;re looking at algebraic expressions, but it&rsquo;s not good for numerical solutions. Now that we had the value of $B$ and $A$, it&rsquo;s a good decision to turn off LaTex.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sympy.init_printing(use_latex=False)
+</code></pre></div><h3 id="solve-the-equation-green-light">
+  Solve the equation: Green light.
+  <a class="heading-link" href="#solve-the-equation-green-light">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Now we can solve the equations. Suppose that we have an intersection with a red light in $x=2$. At the stoplight, traffic is bumper-to-bumper, and the traffic density decreases linearly to zero as we approach the beginning of our road. Ahedad of the stoplight, the road is clear. This is the initial condition:</p>
+<p>\begin{equation}
+\large\rho(x,0)=\left\{ \begin{array}{cc}
+\frac{\rho_{light}x}{2} &amp; 0\leq x&lt;2 \\<br>
+0 &amp;             2\leq x\leq 4
+\end{array}\right.
+\end{equation}</p>
+<p>The following function calculate that situation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">def</span> <span style="color:#ff0">IC</span>(Nx,Nt,x,rho_light):
+    rho=np.zeros((Nx,Nt)) <span style="color:#0f0">#Create the matrix for the solution</span>
+    mask=np.where(x&lt;<span style="color:#f60">2</span>)   <span style="color:#0f0">#Check all the indices where x&lt;2</span>
+    <span style="color:#0f0">#Now, you can put the initial conditions</span>
+    rho[mask,<span style="color:#f60">0</span>]=(rho_light*x[mask])/<span style="color:#f60">2</span>
+    <span style="color:#f00">return</span> rho
+</code></pre></div><p>Let see if I do it right. I&rsquo;m going to create the variables to use and check the initial condition.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#0f0">#------------------#</span>
+<span style="color:#0f0"># Variables        #</span>
+<span style="color:#0f0">#------------------#</span>
+
+Nx=<span style="color:#f60">201</span> <span style="color:#0f0">#Grid points for x</span>
+Nt=<span style="color:#f60">1001</span> <span style="color:#0f0">#Grid points for t</span>
+L=<span style="color:#f60">12</span>    <span style="color:#0f0">#Length of the road</span>
+tf=<span style="color:#f60">12</span>   <span style="color:#0f0">#Final time</span>
+dx=L/(Nx-<span style="color:#f60">1</span>)  <span style="color:#0f0">#Finite step of x</span>
+dt=tf/(Nt-<span style="color:#f60">1</span>) <span style="color:#0f0">#Finite step of t</span>
+u_max=<span style="color:#f60">1</span> <span style="color:#0f0">#Maximunm speed allowed on the road</span>
+rho_max=<span style="color:#f60">10</span> <span style="color:#0f0">#Maximum density of cars allowed on the road</span>
+rho_light=<span style="color:#f60">5</span> <span style="color:#0f0">#Car density at the stoplight</span>
+A=A_val_1 <span style="color:#0f0">#The numerical value of A</span>
+B=B_val   <span style="color:#0f0">#The numerical value of B</span>
+
+x=np.linspace(<span style="color:#f60">0</span>,L,Nx)  <span style="color:#0f0">#Array for x</span>
+t=np.linspace(<span style="color:#f60">0</span>,tf,Nt) <span style="color:#0f0">#Array for t</span>
+</code></pre></div><p>And now, plot the initial condition</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#0f0">#It&#39;s time to check if whe initial conditions are correctly write.</span>
+rho=IC(Nx,Nt,x,rho_light)
+fig, axs=plt.subplots(<span style="color:#f60">1</span>,figsize=(<span style="color:#f60">10</span>,<span style="color:#f60">5</span>))
+axs.set_title(<span style="color:#87ceeb">&#39;Initial condition for $</span><span style="color:#87ceeb">\\</span><span style="color:#87ceeb">rho$&#39;</span>)
+axs.plot(x,rho[:,<span style="color:#f60">0</span>], color=<span style="color:#87ceeb">&#39;teal&#39;</span>, marker=<span style="color:#87ceeb">&#39;o&#39;</span>,markevery=<span style="color:#f60">5</span>)
+axs.set_xlabel(<span style="color:#87ceeb">&#39;x&#39;</span>)
+axs.set_ylabel(<span style="color:#87ceeb">&#39;$</span><span style="color:#87ceeb">\\</span><span style="color:#87ceeb">rho(x,0)$&#39;</span>)
+axs.set_xlim(x[<span style="color:#f60">0</span>],x[Nx-<span style="color:#f60">1</span>])
+axs.set_ylim(rho.min()-<span style="color:#f60">0.25</span>,rho.max()+<span style="color:#f60">0.25</span>)
+axs.spines[<span style="color:#87ceeb">&#39;right&#39;</span>].set_visible(False)
+axs.spines[<span style="color:#87ceeb">&#39;top&#39;</span>].set_visible(False)
+</code></pre></div><figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/New%20traffic/Initial.png"/> 
+</figure>
+
+<p>This look good. Now we can solve the PDE. As we remember, the PDE is:</p>
+<p>\begin{equation}
+\frac{\partial\rho}{\partial t}+\frac{\partial F}{\partial x}=0
+\end{equation}</p>
+<p>And the discretized equation is:</p>
+<p>\begin{equation}
+\rho_x^{t+1}=\rho_x^t-\frac{\Delta t}{\Delta x}\left(F(\rho_x^t)-F(\rho_{x-1}^t)\right)
+\end{equation}</p>
+<p>If you want to see the processes of this discretization, you can check my past post clicking <a href="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/">here</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#0f0">#This is now the function that calculates the traffic flux.</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">F</span>(rho,u_max,A,B):
+    <span style="color:#f00">return</span> u_max*(rho-A*rho**<span style="color:#f60">2</span>-B*rho**<span style="color:#f60">3</span>)
+
+<span style="color:#0f0">#Create a function to put the Boundary Condition of the system</span>
+<span style="color:#f00">def</span> <span style="color:#ff0">BC</span>(rho, Nt):
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">0</span>,Nt-<span style="color:#f60">1</span>):
+        rho[<span style="color:#f60">0</span>,j+<span style="color:#f60">1</span>]=rho[<span style="color:#f60">0</span>,j]
+    <span style="color:#f00">return</span> rho
+
+<span style="color:#f00">def</span> <span style="color:#ff0">solution</span>(Nx,Nt,x,rho_light,u_max,A,B,dt,dx):
+    rho=IC(Nx,Nt,x,rho_light) <span style="color:#0f0">#Create the matrix and put the initial condition</span>
+    rho=BC(rho,Nt)            <span style="color:#0f0">#Now, put the boundary condition</span>
+    <span style="color:#0f0">#Now, solve the PDE using Finite Difference</span>
+    <span style="color:#f00">for</span> j in range(<span style="color:#f60">0</span>,Nt-<span style="color:#f60">1</span>):
+        <span style="color:#f00">for</span> i in range(<span style="color:#f60">0</span>,Nx):
+            rho[i,j+<span style="color:#f60">1</span>]=rho[i,j]-(dt/dx)*(F(rho[i,j],u_max,A,B)-F(rho[i-<span style="color:#f60">1</span>,j],u_max,A,B))
+        rho=BC(rho,Nt) <span style="color:#0f0">#check that de BC are fullfiled</span>
+    <span style="color:#f00">return</span> rho
+</code></pre></div><p>You can check the CFL condition to now if the system is stable or not. In this case, we need:</p>
+<p>\begin{equation}
+\sigma=max\left[u_{max}\left(1-\frac{2\rho}{\rho_{max}}\frac{\Delta t}{\Delta x}\right)\right]&lt;1
+\end{equation}</p>
+<p>Let see if the CFL conditions is fullfiled.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">def</span> <span style="color:#ff0">CFL</span>(u_max,rho_max,dt,dx):
+    sigma=u_max*(<span style="color:#f60">1</span>-(<span style="color:#f60">2</span>*rho/rho_max)*(dt/dx))
+    <span style="color:#f00">print</span>(<span style="color:#87ceeb">&#39;Our valour sigma is {0:02f}&#39;</span>.format(sigma.max()))
+
+%time rho=solution(Nx,Nt,x,rho_light,u_max,A,B,dt,dx)
+CFL(u_max,rho_max,dt,dx)
+</code></pre></div><p>The value of $\sigma$ is 1. Now, the function $\rho$ can be plotted.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig,axs=plt.subplots(<span style="color:#f60">1</span>,figsize=(<span style="color:#f60">10</span>,<span style="color:#f60">5</span>))
+axs.plot(x,rho[:,<span style="color:#f60">0</span>], color=<span style="color:#87ceeb">&#39;teal&#39;</span>, marker=<span style="color:#87ceeb">&#39;o&#39;</span>, markevery=<span style="color:#f60">5</span>)
+axs.plot(x,rho[:,int((Nt-<span style="color:#f60">1</span>)/<span style="color:#f60">3</span>)], color=<span style="color:#87ceeb">&#39;green&#39;</span>, marker=<span style="color:#87ceeb">&#39;o&#39;</span>, markevery=<span style="color:#f60">5</span>)
+axs.plot(x,rho[:,int(<span style="color:#f60">2</span>*(Nt-<span style="color:#f60">1</span>)/<span style="color:#f60">3</span>)], color=<span style="color:#87ceeb">&#39;red&#39;</span>, marker=<span style="color:#87ceeb">&#39;o&#39;</span>, markevery=<span style="color:#f60">5</span>)
+axs.set_xlim(x[<span style="color:#f60">0</span>],x[Nx-<span style="color:#f60">1</span>])
+axs.set_xlabel(<span style="color:#87ceeb">&#39;x&#39;</span>)
+axs.set_ylabel(<span style="color:#87ceeb">&#39;$</span><span style="color:#87ceeb">\\</span><span style="color:#87ceeb">rho$&#39;</span>)
+axs.set_ylim(rho.min()-<span style="color:#f60">0.25</span>,rho.max()+<span style="color:#f60">0.25</span>)
+axs.spines[<span style="color:#87ceeb">&#39;right&#39;</span>].set_visible(False)
+axs.spines[<span style="color:#87ceeb">&#39;top&#39;</span>].set_visible(False)
+</code></pre></div><figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/New%20traffic/Density_flow.png"/> 
+</figure>
+
+<p>We can create a animate video to see better how it works.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig,axs=plt.subplots(<span style="color:#f60">1</span>,figsize=(<span style="color:#f60">10</span>,<span style="color:#f60">5</span>))
+line,=axs.plot([],[], color=<span style="color:#87ceeb">&#39;green&#39;</span>, marker=<span style="color:#87ceeb">&#39;o&#39;</span>,markevery=<span style="color:#f60">5</span>)
+axs.set_xlim(x[<span style="color:#f60">0</span>],x[Nx-<span style="color:#f60">1</span>])
+axs.set_xlabel(<span style="color:#87ceeb">&#39;x&#39;</span>)
+axs.set_ylabel(<span style="color:#87ceeb">&#39;$</span><span style="color:#87ceeb">\\</span><span style="color:#87ceeb">rho$&#39;</span>)
+axs.set_ylim(rho.min()-<span style="color:#f60">0.25</span>,rho.max()+<span style="color:#f60">0.25</span>)
+axs.spines[<span style="color:#87ceeb">&#39;right&#39;</span>].set_visible(False)
+axs.spines[<span style="color:#87ceeb">&#39;top&#39;</span>].set_visible(False)
+xlabel=np.linspace(<span style="color:#f60">0</span>,L,L)
+ylabel=np.linspace(rho.min(),rho.max(),<span style="color:#f60">5</span>)
+axs.set_xticks(xlabel)
+axs.set_xticklabels([<span style="color:#87ceeb">&#39;{0:.0f} km&#39;</span>.format(xlabel[i]) <span style="color:#f00">for</span> i in range(len(xlabel))])
+axs.set_yticks(ylabel)
+axs.set_yticklabels([<span style="color:#87ceeb">&#39;{0:.0f} cars/km&#39;</span>.format(ylabel[i]) <span style="color:#f00">for</span> i in range(len(ylabel))])
+axs.grid(False)
+
+<span style="color:#f00">def</span> <span style="color:#ff0">animate</span>(i):
+    <span style="color:#f00">global</span> x,t,rho
+    axs.collections.clear()
+    line.set_data(x,rho[:,i])
+    fill=axs.fill_between(x,rho[:,i],-<span style="color:#f60">1</span>, color=<span style="color:#87ceeb">&#39;green&#39;</span>,alpha=<span style="color:#f60">0.1</span>)
+    axs.set_title(<span style="color:#87ceeb">&#39;Cars density in t={0:.2f} hours&#39;</span>.format(t[i]))
+    <span style="color:#f00">return</span> line, fill
+
+anim=FuncAnimation(fig,animate,frames=Nt,interval=<span style="color:#f60">60</span>,blit=True)
+plt.close()
+
+%time anim.save(<span style="color:#87ceeb">&#39;Traffic_Flow.mp4&#39;</span>,fps=<span style="color:#f60">60</span>,extra_args=[<span style="color:#87ceeb">&#39;-vcodec&#39;</span>,<span style="color:#87ceeb">&#39;libx264&#39;</span>])
+</code></pre></div>
+
+
+<video width=100% controls autoplay>
+    <source src="https://ricardoleal20.github.io/Blog/videos/New Traffic/Traffic_Flow.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+<p>As you can see, our density approach to 0 while the time is passing.</p>
+<p>That&rsquo;s all for this post! You can check the jupyter notebook from this problem <a href="https://github.com/ricardoleal20/Personal-Projects/blob/master/Python/Numerical%20Methods/Traffic_Flow_Better.ipynb">here</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="see-also-in-python">
+        See also in Python
+        <a class="heading-link" href="#see-also-in-python">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/snowball/snowball/">Optimization of a snow ball problem.</a>
+            </li>
+          
+        
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/">Solving the heat equation in 1D.</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/">Modeling an epidemic.</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/">Analysis of the tympanic membrane with the wave equation.</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/">Simulating the traffic flow with Python.</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2020 -
+        
+        2021
+         Ricardo M. Leal Lopez 
+      
+      
+      
+        
+        
+    </section>
+  </footer>  
+
+<script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+    </main>
+
+    
+      
+        
+        <script src="https://ricardoleal20.github.io/Blog/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>
