@@ -6,7 +6,22 @@
     <description>Recent content in Numerical Methods on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Burger equation with MacCormack scheme.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/burger/burger/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/burger/burger/</guid>
+      <description>Burgers with MacCormack    Conside the 1D Burgers equation:
+\begin{equation} \frac{\partial u}{\partial t}=-u\frac{\partial u}{\partial x} \end{equation}
+We want to represent this in conservative forms so that we can better deal with potential shocks, which gives us:
+\begin{equation} \frac{\partial u}{\partial t}=-\frac{\partial }{\partial x}\left(\frac{u^2}{2}\right) \end{equation}
+We can also write this as:
+\begin{equation} \frac{\partial u}{\partial t}=-\frac{\partial F}{\partial x} \end{equation}
+If we take $F=\frac{u^2}{2}$. Start with a Heaviside function (a sep function) with the following values:</description>
+    </item>
+    
     <item>
       <title>Optimization of a snow ball problem.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/snowball/snowball/</link>
@@ -22,7 +37,7 @@ While the impact force is $F=\frac{K_E}{r}$, where $K_E$ is the kinetic energy.<
     </item>
     
     <item>
-      <title>Traffic flow with SciPy.</title>
+      <title>Traffic flow with SymPy.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/</link>
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
       

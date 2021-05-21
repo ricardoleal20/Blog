@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div id="particles-js"></div>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+  <script type="text/javascript" src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    
+
+    <meta name="author" content="Ricardo M. Leal Lopez">
+    <meta name="description" content="Use data science to analysis the mean temperature per year of North America.">
+    <meta name="keywords" content="Programmer, Physicist">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="North America evolution of temperature."/>
+<meta name="twitter:description" content="Use data science to analysis the mean temperature per year of North America."/>
+
+    <meta property="og:title" content="North America evolution of temperature." />
+<meta property="og:description" content="Use data science to analysis the mean temperature per year of North America." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ricardoleal20.github.io/Blog/posts/temperature/temperature/" />
+<meta property="article:published_time" content="2021-04-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-18T00:00:00+00:00" /><meta property="og:see_also" content="https://ricardoleal20.github.io/Blog/posts/admission/admission/" />
+
+
+
+    <title>
+  North America evolution of temperature. · Ricardo
+</title>
+
+    
+      <link rel="canonical" href="https://ricardoleal20.github.io/Blog/posts/temperature/temperature/">
+    
+
+    <link rel="preload" href="https://ricardoleal20.github.io/Blog/fonts/forkawesome-webfont.woff2?v=1.1.7" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder.min.ec198d25949ddd79a670b1ead43ca88e0bc2c1343266d0df0a9eeb7f3f207777.css" integrity="sha256-7BmNJZSd3XmmcLHq1DyojgvCwTQyZtDfCp7rfz8gd3c=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/coder-dark.min.89c82b6022b96f77aeb521b240daec4f87ea029d84d1c78b8acd0735b91b3c92.css" integrity="sha256-icgrYCK5b3eutSGyQNrsT4fqAp2E0ceLis0HNbkbPJI=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/style.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ricardoleal20.github.io/Blog/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ricardoleal20.github.io/Blog/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <link rel="stylesheet" href="https://ricardoleal20.github.io/Blog/css/bootstrap5.css">
+  <section class="container">
+    <a class="navigation-title" href="https://ricardoleal20.github.io/Blog/">
+      Ricardo
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ricardoleal20.github.io/Blog/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://ricardoleal20.github.io/Blog/es/posts/temperature/temperature/">Español</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://ricardoleal20.github.io/Blog/posts/temperature/temperature/">
+              North America evolution of temperature.
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-04-18T00:00:00Z'>
+                April 18, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/categories/data-analysis/">Data Analysis</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="https://ricardoleal20.github.io/Blog/tags/data-analysis/">Data Analysis</a>
+      <span class="separator">•</span>
+    <a href="https://ricardoleal20.github.io/Blog/tags/python/">Python</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="north-america-change-in-temperature">
+  North america change in temperature
+  <a class="heading-link" href="#north-america-change-in-temperature">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>In this project, I decide to make a comparison in North America to check the $CO_2$ emittions and the temperature change between the years. In particular, I&rsquo;m gonna work with <em>United States, Canada</em> and <em>Mexico</em>. I&rsquo;m gonna check how many $CO_2$ produce every country from 1960 until now, and also check the average temperature.</p>
+<p>First, let me import the libraries to use</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f00">import</span> numpy <span style="color:#f00">as</span> np
+<span style="color:#f00">import</span> matplotlib.pyplot <span style="color:#f00">as</span> plt
+<span style="color:#f00">import</span> pandas <span style="color:#f00">as</span> pd
+<span style="color:#f00">import</span> jupyterthemes <span style="color:#f00">as</span> jtplot
+<span style="color:#f00">from</span> jupyterthemes <span style="color:#f00">import</span> jtplot
+jtplot.style(theme=<span style="color:#87ceeb">&#39;monokai&#39;</span>)
+</code></pre></div><p>Now, I need to open the datasets.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data1=pd.read_csv(<span style="color:#87ceeb">&#39;temperature.csv&#39;</span>,skiprows=<span style="color:#f60">4</span>)
+data2=pd.read_csv(<span style="color:#87ceeb">&#39;API_EN.ATM.CO2E.PC_DS2_en_csv_v2_1927797.csv&#39;</span>,skiprows=<span style="color:#f60">3</span>)
+data3=pd.read_csv(<span style="color:#87ceeb">&#39;mexico.csv&#39;</span>,header=None,skiprows=<span style="color:#f60">1</span>)
+data4=pd.read_csv(<span style="color:#87ceeb">&#39;canada.csv&#39;</span>,header=None,skiprows=<span style="color:#f60">1</span>)
+
+usa_temp=pd.DataFrame(data1)
+CO2=pd.DataFrame(data2)
+mexico_temp=pd.DataFrame(data3)
+canada_temp=pd.DataFrame(data4)
+
+min_year=<span style="color:#f60">1960</span> <span style="color:#0f0">#It&#39;s an arbitrary value </span>
+</code></pre></div><p>Work with the first data set. The <em>USA</em> temperature. Let&rsquo;s check the data</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">usa_temp.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">Date</th>
+<th style="text-align:right">Value</th>
+<th style="text-align:right">Anomaly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">196012</td>
+<td style="text-align:right">51.44</td>
+<td style="text-align:right">-0.58</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">196112</td>
+<td style="text-align:right">51.87</td>
+<td style="text-align:right">-0.15</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">196212</td>
+<td style="text-align:right">51.9</td>
+<td style="text-align:right">-0.12</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">196312</td>
+<td style="text-align:right">52.26</td>
+<td style="text-align:right">0.24</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">196412</td>
+<td style="text-align:right">51.67</td>
+<td style="text-align:right">-0.35</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>The best thing I can do it&rsquo;s to change the name of the columns and also quit the column <em>Anomaly</em>, that because isn&rsquo;t work for my analysis.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">usa_temp=usa_temp.rename(columns={<span style="color:#87ceeb">&#39;Date&#39;</span>:<span style="color:#87ceeb">&#39;Year&#39;</span>,
+                                  <span style="color:#87ceeb">&#39;Value&#39;</span>:<span style="color:#87ceeb">&#39;Temperature&#39;</span>}).drop(columns=<span style="color:#87ceeb">&#39;Anomaly&#39;</span>)
+<span style="color:#f00">def</span> <span style="color:#ff0">celsius_to_fah</span>(x):
+    <span style="color:#f00">return</span> (x*(<span style="color:#f60">9</span>/<span style="color:#f60">5</span>))+<span style="color:#f60">32</span>
+
+<span style="color:#f00">def</span> <span style="color:#ff0">fah_to_celsius</span>(x):
+    <span style="color:#f00">return</span> (x-<span style="color:#f60">32</span>)*(<span style="color:#f60">5</span>/<span style="color:#f60">9</span>)
+
+<span style="color:#f00">for</span> i in range(len(usa_temp)):
+    usa_temp[<span style="color:#87ceeb">&#39;Year&#39;</span>][i]=min_year+i
+    usa_temp[<span style="color:#87ceeb">&#39;Temperature&#39;</span>][i]=fah_to_celsius(usa_temp[<span style="color:#87ceeb">&#39;Temperature&#39;</span>][i])
+usa_temp.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">Year</th>
+<th style="text-align:right">Temperature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1960</td>
+<td style="text-align:right">10.8</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1961</td>
+<td style="text-align:right">11.0389</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1962</td>
+<td style="text-align:right">11.0556</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1963</td>
+<td style="text-align:right">11.2556</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1964</td>
+<td style="text-align:right">10.9278</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>I want the change of the temperature, I mean i want the $\Delta T$. This differential it can be calculated by $\Delta T=T_i-T_0$, where $T_i$ is the actual temperature and $T_0$ is the initial temperature, at the year 1960. I&rsquo;m going to create a new column with this $\Delta T$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dT=[]
+<span style="color:#0f0">#dT.append(0)</span>
+T0=usa_temp[<span style="color:#87ceeb">&#39;Temperature&#39;</span>][<span style="color:#f60">0</span>]
+<span style="color:#f00">for</span> i in range(<span style="color:#f60">1</span>,len(usa_temp)):
+    dT.append(usa_temp[<span style="color:#87ceeb">&#39;Temperature&#39;</span>][i]-T0)
+
+usa_temp=usa_temp.join(pd.DataFrame({<span style="color:#87ceeb">&#39;dT&#39;</span>:dT}))
+usa_temp.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">Year</th>
+<th style="text-align:right">Temperature</th>
+<th style="text-align:right">$\Delta T$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1960</td>
+<td style="text-align:right">10.8</td>
+<td style="text-align:right">0.238889</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1961</td>
+<td style="text-align:right">11.0389</td>
+<td style="text-align:right">0.255556</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1962</td>
+<td style="text-align:right">11.0556</td>
+<td style="text-align:right">0.455556</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1963</td>
+<td style="text-align:right">11.2556</td>
+<td style="text-align:right">0.127778</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1964</td>
+<td style="text-align:right">10.9278</td>
+<td style="text-align:right">0.138889</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Now, It&rsquo;s time to work with the data from Mexico.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mexico_temp=mexico_temp.rename(columns={<span style="color:#f60">0</span>:<span style="color:#87ceeb">&#39;Temperature&#39;</span>,<span style="color:#f60">1</span>:<span style="color:#87ceeb">&#39;Year&#39;</span>,
+                                        <span style="color:#f60">2</span>:<span style="color:#87ceeb">&#39;Statistics&#39;</span>,<span style="color:#f60">3</span>:<span style="color:#87ceeb">&#39;Country&#39;</span>,<span style="color:#f60">4</span>:<span style="color:#87ceeb">&#39;ISO3&#39;</span>})
+mexico_temp.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">Temperature</th>
+<th style="text-align:right">Year</th>
+<th style="text-align:left">Statistics</th>
+<th style="text-align:left">Country</th>
+<th style="text-align:left">ISO3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">15.5146</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">Jan Average</td>
+<td style="text-align:left">Mexico</td>
+<td style="text-align:left">MEX</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">15.3109</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">Feb Average</td>
+<td style="text-align:left">Mexico</td>
+<td style="text-align:left">MEX</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">17.8516</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">Mar Average</td>
+<td style="text-align:left">Mexico</td>
+<td style="text-align:left">MEX</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">19.6372</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">Apr Average</td>
+<td style="text-align:left">Mexico</td>
+<td style="text-align:left">MEX</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">22.5504</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">May Average</td>
+<td style="text-align:left">Mexico</td>
+<td style="text-align:left">MEX</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Okey, i&rsquo;ll manipulate the data to drop some columns and add the $\Delta T$ column</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mexico_temp=mexico_temp.drop(columns={<span style="color:#87ceeb">&#39;Statistics&#39;</span>,<span style="color:#87ceeb">&#39;Country&#39;</span>,<span style="color:#87ceeb">&#39;ISO3&#39;</span>})
+mexico_temp=mexico_temp.where(mexico_temp[<span style="color:#87ceeb">&#39;Year&#39;</span>]&gt;=min_year).dropna()
+mexico_temp=mexico_temp.groupby(<span style="color:#87ceeb">&#39;Year&#39;</span>).mean().reset_index()
+mexico_temp[<span style="color:#87ceeb">&#39;Year&#39;</span>]=mexico_temp[<span style="color:#87ceeb">&#39;Year&#39;</span>].astype(<span style="color:#87ceeb">&#39;int&#39;</span>)
+
+<span style="color:#0f0">#I&#39;m also add the dT column.</span>
+dT=[]
+<span style="color:#0f0">#dT.append(0)</span>
+T0=mexico_temp[<span style="color:#87ceeb">&#39;Temperature&#39;</span>][<span style="color:#f60">0</span>]
+<span style="color:#f00">for</span> i in range(len(mexico_temp)):
+    dT.append(mexico_temp[<span style="color:#87ceeb">&#39;Temperature&#39;</span>][i]-T0)
+mexico_temp=mexico_temp.join(pd.DataFrame({<span style="color:#87ceeb">&#39;dT&#39;</span>:dT}))
+mexico_temp.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">Year</th>
+<th style="text-align:right">Temperature</th>
+<th style="text-align:right">$\Delta T$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1960</td>
+<td style="text-align:right">20.509</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1961</td>
+<td style="text-align:right">20.4919</td>
+<td style="text-align:right">-0.01705</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1962</td>
+<td style="text-align:right">20.838</td>
+<td style="text-align:right">0.32905</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1963</td>
+<td style="text-align:right">20.6835</td>
+<td style="text-align:right">0.1745</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1964</td>
+<td style="text-align:right">20.3534</td>
+<td style="text-align:right">-0.155592</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Now it&rsquo;s time to clean the Canada data.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">canada_temp=canada_temp.rename(columns={<span style="color:#f60">0</span>:<span style="color:#87ceeb">&#39;Temperature&#39;</span>,<span style="color:#f60">1</span>:<span style="color:#87ceeb">&#39;Year&#39;</span>,<span style="color:#f60">2</span>:<span style="color:#87ceeb">&#39;Statistics&#39;</span>,
+                                        <span style="color:#f60">3</span>:<span style="color:#87ceeb">&#39;Country&#39;</span>,<span style="color:#f60">4</span>:<span style="color:#87ceeb">&#39;ISO3&#39;</span>})
+canada_temp.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">Temperature</th>
+<th style="text-align:right">Year</th>
+<th style="text-align:left">Statistics</th>
+<th style="text-align:left">Country</th>
+<th style="text-align:left">ISO3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">-25.385</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">Jan Average</td>
+<td style="text-align:left">Canada</td>
+<td style="text-align:left">CAN</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">-23.719</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">Feb Average</td>
+<td style="text-align:left">Canada</td>
+<td style="text-align:left">CAN</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">-18.934</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">Mar Average</td>
+<td style="text-align:left">Canada</td>
+<td style="text-align:left">CAN</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">-9.9643</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">Apr Average</td>
+<td style="text-align:left">Canada</td>
+<td style="text-align:left">CAN</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">0.02289</td>
+<td style="text-align:right">1901</td>
+<td style="text-align:left">May Average</td>
+<td style="text-align:left">Canada</td>
+<td style="text-align:left">CAN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Just like i did with Mexico, i am gonna do the same with Canada.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">canada_temp=canada_temp.drop(columns={<span style="color:#87ceeb">&#39;Statistics&#39;</span>,<span style="color:#87ceeb">&#39;Country&#39;</span>,<span style="color:#87ceeb">&#39;ISO3&#39;</span>})
+canada_temp=canada_temp.where(canada_temp[<span style="color:#87ceeb">&#39;Year&#39;</span>]&gt;=min_year).dropna()
+canada_temp=canada_temp.groupby(<span style="color:#87ceeb">&#39;Year&#39;</span>).mean().reset_index()
+canada_temp[<span style="color:#87ceeb">&#39;Year&#39;</span>]=canada_temp[<span style="color:#87ceeb">&#39;Year&#39;</span>].astype(<span style="color:#87ceeb">&#39;int&#39;</span>)
+<span style="color:#0f0">#I&#39;m also add the dT column.</span>
+dT=[]
+<span style="color:#0f0">#dT.append(0)</span>
+T0=canada_temp[<span style="color:#87ceeb">&#39;Temperature&#39;</span>][<span style="color:#f60">0</span>]
+<span style="color:#f00">for</span> i in range(len(canada_temp)):
+    dT.append(canada_temp[<span style="color:#87ceeb">&#39;Temperature&#39;</span>][i]-T0)
+canada_temp=canada_temp.join(pd.DataFrame({<span style="color:#87ceeb">&#39;dT&#39;</span>:dT}))
+canada_temp.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">Year</th>
+<th style="text-align:right">Temperature</th>
+<th style="text-align:right">$\Delta T$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1960</td>
+<td style="text-align:right">-6.4908</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1961</td>
+<td style="text-align:right">-7.39057</td>
+<td style="text-align:right">-0.899773</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1962</td>
+<td style="text-align:right">-6.97667</td>
+<td style="text-align:right">-0.485867</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1963</td>
+<td style="text-align:right">-6.79263</td>
+<td style="text-align:right">-0.301832</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1964</td>
+<td style="text-align:right">-7.67968</td>
+<td style="text-align:right">-1.18888</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>And for last, it&rsquo;s time to clean the CO2 data from every coutry.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#0f0">#Check the data</span>
+CO2.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:left">Country Name</th>
+<th style="text-align:left">Country Code</th>
+<th style="text-align:left">Indicator Name</th>
+<th style="text-align:left">Indicator Code</th>
+<th style="text-align:right">1960</th>
+<th style="text-align:right">1961</th>
+<th style="text-align:right">1962</th>
+<th style="text-align:right">1963</th>
+<th style="text-align:right">1964</th>
+<th style="text-align:right">1965</th>
+<th style="text-align:right">1966</th>
+<th style="text-align:right">1967</th>
+<th style="text-align:right">1968</th>
+<th style="text-align:right">1969</th>
+<th style="text-align:right">1970</th>
+<th style="text-align:right">1971</th>
+<th style="text-align:right">1972</th>
+<th style="text-align:right">1973</th>
+<th style="text-align:right">1974</th>
+<th style="text-align:right">1975</th>
+<th style="text-align:right">1976</th>
+<th style="text-align:right">1977</th>
+<th style="text-align:right">1978</th>
+<th style="text-align:right">1979</th>
+<th style="text-align:right">1980</th>
+<th style="text-align:right">1981</th>
+<th style="text-align:right">1982</th>
+<th style="text-align:right">1983</th>
+<th style="text-align:right">1984</th>
+<th style="text-align:right">1985</th>
+<th style="text-align:right">1986</th>
+<th style="text-align:right">1987</th>
+<th style="text-align:right">1988</th>
+<th style="text-align:right">1989</th>
+<th style="text-align:right">1990</th>
+<th style="text-align:right">1991</th>
+<th style="text-align:right">1992</th>
+<th style="text-align:right">1993</th>
+<th style="text-align:right">1994</th>
+<th style="text-align:right">1995</th>
+<th style="text-align:right">1996</th>
+<th style="text-align:right">1997</th>
+<th style="text-align:right">1998</th>
+<th style="text-align:right">1999</th>
+<th style="text-align:right">2000</th>
+<th style="text-align:right">2001</th>
+<th style="text-align:right">2002</th>
+<th style="text-align:right">2003</th>
+<th style="text-align:right">2004</th>
+<th style="text-align:right">2005</th>
+<th style="text-align:right">2006</th>
+<th style="text-align:right">2007</th>
+<th style="text-align:right">2008</th>
+<th style="text-align:right">2009</th>
+<th style="text-align:right">2010</th>
+<th style="text-align:right">2011</th>
+<th style="text-align:right">2012</th>
+<th style="text-align:right">2013</th>
+<th style="text-align:right">2014</th>
+<th style="text-align:right">2015</th>
+<th style="text-align:right">2016</th>
+<th style="text-align:right">2017</th>
+<th style="text-align:right">2018</th>
+<th style="text-align:right">2019</th>
+<th style="text-align:right">2020</th>
+<th style="text-align:right">Unnamed: 65</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:left">Aruba</td>
+<td style="text-align:left">ABW</td>
+<td style="text-align:left">CO2 emissions (metric tons per capita)</td>
+<td style="text-align:left">EN.ATM.CO2E.PC</td>
+<td style="text-align:right">204.62</td>
+<td style="text-align:right">208.823</td>
+<td style="text-align:right">226.118</td>
+<td style="text-align:right">214.8</td>
+<td style="text-align:right">207.616</td>
+<td style="text-align:right">185.204</td>
+<td style="text-align:right">172.12</td>
+<td style="text-align:right">210.779</td>
+<td style="text-align:right">194.887</td>
+<td style="text-align:right">253.579</td>
+<td style="text-align:right">281.996</td>
+<td style="text-align:right">243.87</td>
+<td style="text-align:right">234.887</td>
+<td style="text-align:right">258.82</td>
+<td style="text-align:right">233.489</td>
+<td style="text-align:right">168.729</td>
+<td style="text-align:right">360.853</td>
+<td style="text-align:right">189.163</td>
+<td style="text-align:right">161.804</td>
+<td style="text-align:right">170.083</td>
+<td style="text-align:right">174.698</td>
+<td style="text-align:right">165.105</td>
+<td style="text-align:right">182.259</td>
+<td style="text-align:right">92.381</td>
+<td style="text-align:right">228.356</td>
+<td style="text-align:right">266.475</td>
+<td style="text-align:right">2.86832</td>
+<td style="text-align:right">7.2352</td>
+<td style="text-align:right">10.0262</td>
+<td style="text-align:right">10.6347</td>
+<td style="text-align:right">7.84745</td>
+<td style="text-align:right">8.22808</td>
+<td style="text-align:right">7.89989</td>
+<td style="text-align:right">8.95204</td>
+<td style="text-align:right">8.60574</td>
+<td style="text-align:right">8.81095</td>
+<td style="text-align:right">8.72675</td>
+<td style="text-align:right">8.88309</td>
+<td style="text-align:right">9.24344</td>
+<td style="text-align:right">9.10519</td>
+<td style="text-align:right">26.1949</td>
+<td style="text-align:right">25.934</td>
+<td style="text-align:right">25.6712</td>
+<td style="text-align:right">26.4205</td>
+<td style="text-align:right">26.5173</td>
+<td style="text-align:right">27.2007</td>
+<td style="text-align:right">26.9477</td>
+<td style="text-align:right">27.895</td>
+<td style="text-align:right">26.2296</td>
+<td style="text-align:right">25.9153</td>
+<td style="text-align:right">24.6705</td>
+<td style="text-align:right">24.5075</td>
+<td style="text-align:right">13.1577</td>
+<td style="text-align:right">8.35356</td>
+<td style="text-align:right">8.41006</td>
+<td style="text-align:right">8.61037</td>
+<td style="text-align:right">8.42691</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Afghanistan</td>
+<td style="text-align:left">AFG</td>
+<td style="text-align:left">CO2 emissions (metric tons per capita)</td>
+<td style="text-align:left">EN.ATM.CO2E.PC</td>
+<td style="text-align:right">0.0460567</td>
+<td style="text-align:right">0.0535888</td>
+<td style="text-align:right">0.0737208</td>
+<td style="text-align:right">0.0741607</td>
+<td style="text-align:right">0.0861736</td>
+<td style="text-align:right">0.101285</td>
+<td style="text-align:right">0.107399</td>
+<td style="text-align:right">0.12341</td>
+<td style="text-align:right">0.115142</td>
+<td style="text-align:right">0.0865099</td>
+<td style="text-align:right">0.149651</td>
+<td style="text-align:right">0.165208</td>
+<td style="text-align:right">0.129996</td>
+<td style="text-align:right">0.135367</td>
+<td style="text-align:right">0.154503</td>
+<td style="text-align:right">0.167612</td>
+<td style="text-align:right">0.153558</td>
+<td style="text-align:right">0.181522</td>
+<td style="text-align:right">0.161894</td>
+<td style="text-align:right">0.167066</td>
+<td style="text-align:right">0.131783</td>
+<td style="text-align:right">0.150615</td>
+<td style="text-align:right">0.163104</td>
+<td style="text-align:right">0.201224</td>
+<td style="text-align:right">0.231961</td>
+<td style="text-align:right">0.293957</td>
+<td style="text-align:right">0.267772</td>
+<td style="text-align:right">0.26923</td>
+<td style="text-align:right">0.246823</td>
+<td style="text-align:right">0.233882</td>
+<td style="text-align:right">0.210643</td>
+<td style="text-align:right">0.183364</td>
+<td style="text-align:right">0.0961966</td>
+<td style="text-align:right">0.0850871</td>
+<td style="text-align:right">0.0758065</td>
+<td style="text-align:right">0.0686399</td>
+<td style="text-align:right">0.0624346</td>
+<td style="text-align:right">0.0566423</td>
+<td style="text-align:right">0.0527632</td>
+<td style="text-align:right">0.0407225</td>
+<td style="text-align:right">0.0372348</td>
+<td style="text-align:right">0.0378461</td>
+<td style="text-align:right">0.0473773</td>
+<td style="text-align:right">0.0512556</td>
+<td style="text-align:right">0.0370753</td>
+<td style="text-align:right">0.051744</td>
+<td style="text-align:right">0.0624275</td>
+<td style="text-align:right">0.0838928</td>
+<td style="text-align:right">0.151721</td>
+<td style="text-align:right">0.238399</td>
+<td style="text-align:right">0.289988</td>
+<td style="text-align:right">0.406424</td>
+<td style="text-align:right">0.345149</td>
+<td style="text-align:right">0.280455</td>
+<td style="text-align:right">0.253728</td>
+<td style="text-align:right">0.262556</td>
+<td style="text-align:right">0.245101</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Angola</td>
+<td style="text-align:left">AGO</td>
+<td style="text-align:left">CO2 emissions (metric tons per capita)</td>
+<td style="text-align:left">EN.ATM.CO2E.PC</td>
+<td style="text-align:right">0.100835</td>
+<td style="text-align:right">0.0822038</td>
+<td style="text-align:right">0.210531</td>
+<td style="text-align:right">0.202737</td>
+<td style="text-align:right">0.21356</td>
+<td style="text-align:right">0.205891</td>
+<td style="text-align:right">0.268941</td>
+<td style="text-align:right">0.172102</td>
+<td style="text-align:right">0.289718</td>
+<td style="text-align:right">0.480234</td>
+<td style="text-align:right">0.608224</td>
+<td style="text-align:right">0.564548</td>
+<td style="text-align:right">0.721246</td>
+<td style="text-align:right">0.75124</td>
+<td style="text-align:right">0.720776</td>
+<td style="text-align:right">0.628569</td>
+<td style="text-align:right">0.451354</td>
+<td style="text-align:right">0.469221</td>
+<td style="text-align:right">0.694737</td>
+<td style="text-align:right">0.683063</td>
+<td style="text-align:right">0.640966</td>
+<td style="text-align:right">0.611135</td>
+<td style="text-align:right">0.519355</td>
+<td style="text-align:right">0.551349</td>
+<td style="text-align:right">0.520983</td>
+<td style="text-align:right">0.471903</td>
+<td style="text-align:right">0.451619</td>
+<td style="text-align:right">0.544085</td>
+<td style="text-align:right">0.463508</td>
+<td style="text-align:right">0.437295</td>
+<td style="text-align:right">0.431744</td>
+<td style="text-align:right">0.415531</td>
+<td style="text-align:right">0.410523</td>
+<td style="text-align:right">0.441721</td>
+<td style="text-align:right">0.288119</td>
+<td style="text-align:right">0.787033</td>
+<td style="text-align:right">0.726233</td>
+<td style="text-align:right">0.496361</td>
+<td style="text-align:right">0.475815</td>
+<td style="text-align:right">0.577083</td>
+<td style="text-align:right">0.581961</td>
+<td style="text-align:right">0.574316</td>
+<td style="text-align:right">0.722959</td>
+<td style="text-align:right">0.500225</td>
+<td style="text-align:right">1.00188</td>
+<td style="text-align:right">0.985736</td>
+<td style="text-align:right">1.10502</td>
+<td style="text-align:right">1.20313</td>
+<td style="text-align:right">1.185</td>
+<td style="text-align:right">1.23443</td>
+<td style="text-align:right">1.24409</td>
+<td style="text-align:right">1.26282</td>
+<td style="text-align:right">1.36118</td>
+<td style="text-align:right">1.29508</td>
+<td style="text-align:right">1.66474</td>
+<td style="text-align:right">1.24025</td>
+<td style="text-align:right">1.20286</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Albania</td>
+<td style="text-align:left">ALB</td>
+<td style="text-align:left">CO2 emissions (metric tons per capita)</td>
+<td style="text-align:left">EN.ATM.CO2E.PC</td>
+<td style="text-align:right">1.25819</td>
+<td style="text-align:right">1.37419</td>
+<td style="text-align:right">1.43996</td>
+<td style="text-align:right">1.18168</td>
+<td style="text-align:right">1.11174</td>
+<td style="text-align:right">1.1661</td>
+<td style="text-align:right">1.33306</td>
+<td style="text-align:right">1.36375</td>
+<td style="text-align:right">1.51955</td>
+<td style="text-align:right">1.55897</td>
+<td style="text-align:right">1.75324</td>
+<td style="text-align:right">1.9895</td>
+<td style="text-align:right">2.51591</td>
+<td style="text-align:right">2.3039</td>
+<td style="text-align:right">1.84901</td>
+<td style="text-align:right">1.91063</td>
+<td style="text-align:right">2.01358</td>
+<td style="text-align:right">2.27588</td>
+<td style="text-align:right">2.53063</td>
+<td style="text-align:right">2.89821</td>
+<td style="text-align:right">1.93506</td>
+<td style="text-align:right">2.69302</td>
+<td style="text-align:right">2.62486</td>
+<td style="text-align:right">2.68324</td>
+<td style="text-align:right">2.69429</td>
+<td style="text-align:right">2.65802</td>
+<td style="text-align:right">2.66536</td>
+<td style="text-align:right">2.41406</td>
+<td style="text-align:right">2.3316</td>
+<td style="text-align:right">2.78324</td>
+<td style="text-align:right">1.67811</td>
+<td style="text-align:right">1.31221</td>
+<td style="text-align:right">0.774725</td>
+<td style="text-align:right">0.72379</td>
+<td style="text-align:right">0.600204</td>
+<td style="text-align:right">0.654537</td>
+<td style="text-align:right">0.636625</td>
+<td style="text-align:right">0.490365</td>
+<td style="text-align:right">0.560271</td>
+<td style="text-align:right">0.960164</td>
+<td style="text-align:right">0.978175</td>
+<td style="text-align:right">1.0533</td>
+<td style="text-align:right">1.22954</td>
+<td style="text-align:right">1.4127</td>
+<td style="text-align:right">1.37621</td>
+<td style="text-align:right">1.4125</td>
+<td style="text-align:right">1.30258</td>
+<td style="text-align:right">1.32233</td>
+<td style="text-align:right">1.48431</td>
+<td style="text-align:right">1.4956</td>
+<td style="text-align:right">1.57857</td>
+<td style="text-align:right">1.80371</td>
+<td style="text-align:right">1.69797</td>
+<td style="text-align:right">1.69728</td>
+<td style="text-align:right">1.90007</td>
+<td style="text-align:right">1.60265</td>
+<td style="text-align:right">1.57716</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:left">Andorra</td>
+<td style="text-align:left">AND</td>
+<td style="text-align:left">CO2 emissions (metric tons per capita)</td>
+<td style="text-align:left">EN.ATM.CO2E.PC</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">7.46734</td>
+<td style="text-align:right">7.18246</td>
+<td style="text-align:right">6.91205</td>
+<td style="text-align:right">6.73605</td>
+<td style="text-align:right">6.4942</td>
+<td style="text-align:right">6.66205</td>
+<td style="text-align:right">7.06507</td>
+<td style="text-align:right">7.23971</td>
+<td style="text-align:right">7.66078</td>
+<td style="text-align:right">7.97545</td>
+<td style="text-align:right">8.01928</td>
+<td style="text-align:right">7.78695</td>
+<td style="text-align:right">7.59062</td>
+<td style="text-align:right">7.31576</td>
+<td style="text-align:right">7.35862</td>
+<td style="text-align:right">7.29987</td>
+<td style="text-align:right">6.74605</td>
+<td style="text-align:right">6.51939</td>
+<td style="text-align:right">6.42781</td>
+<td style="text-align:right">6.12158</td>
+<td style="text-align:right">6.12259</td>
+<td style="text-align:right">5.86741</td>
+<td style="text-align:right">5.91688</td>
+<td style="text-align:right">5.90178</td>
+<td style="text-align:right">5.83291</td>
+<td style="text-align:right">5.96979</td>
+<td style="text-align:right">6.07237</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+<td style="text-align:right">nan</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>It&rsquo;s time to manipulate the data and only left the countrys in North America.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#0f0">#For USA</span>
+usa_co2=CO2.where(CO2[<span style="color:#87ceeb">&#39;Country Code&#39;</span>]==<span style="color:#87ceeb">&#39;USA&#39;</span>).dropna(how=<span style="color:#87ceeb">&#39;all&#39;</span>)
+usa_co2=usa_co2.iloc[:,<span style="color:#f60">4</span>:<span style="color:#f60">61</span>]
+
+<span style="color:#0f0">#For Mexico</span>
+mexico_co2=CO2.where(CO2[<span style="color:#87ceeb">&#39;Country Code&#39;</span>]==<span style="color:#87ceeb">&#39;MEX&#39;</span>).dropna(how=<span style="color:#87ceeb">&#39;all&#39;</span>)
+mexico_co2=mexico_co2.iloc[:,<span style="color:#f60">4</span>:<span style="color:#f60">61</span>]
+
+<span style="color:#0f0">#For Canada</span>
+canada_co2=CO2.where(CO2[<span style="color:#87ceeb">&#39;Country Code&#39;</span>]==<span style="color:#87ceeb">&#39;CAN&#39;</span>).dropna(how=<span style="color:#87ceeb">&#39;all&#39;</span>)
+canada_co2=canada_co2.iloc[:,<span style="color:#f60">4</span>:<span style="color:#f60">61</span>]
+
+<span style="color:#0f0">#I can make just one dataFrame with all the past CO2 emissions.</span>
+years=[]; usa_data=[]; mex_data=[]; can_data=[]
+<span style="color:#f00">for</span> i in range(len(usa_temp)):
+    years.append(min_year+i)
+    usa_data.append(usa_co2.iloc[<span style="color:#f60">0</span>,i])
+    mex_data.append(mexico_co2.iloc[<span style="color:#f60">0</span>,i])
+    can_data.append(canada_co2.iloc[<span style="color:#f60">0</span>,i])
+
+co2_emission=pd.DataFrame({<span style="color:#87ceeb">&#39;Year&#39;</span>:years,
+                           <span style="color:#87ceeb">&#39;USA&#39;</span>:usa_data,
+                           <span style="color:#87ceeb">&#39;Mexico&#39;</span>:mex_data,
+                           <span style="color:#87ceeb">&#39;Canada&#39;</span>:can_data})
+co2_emission.head()
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-dark table-striped table-bordered">
+<thead class="">
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">Year</th>
+<th style="text-align:right">USA</th>
+<th style="text-align:right">Mexico</th>
+<th style="text-align:right">Canada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1960</td>
+<td style="text-align:right">15.9998</td>
+<td style="text-align:right">1.67099</td>
+<td style="text-align:right">10.7708</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1961</td>
+<td style="text-align:right">15.6813</td>
+<td style="text-align:right">1.67596</td>
+<td style="text-align:right">10.6279</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1962</td>
+<td style="text-align:right">16.0139</td>
+<td style="text-align:right">1.58749</td>
+<td style="text-align:right">11.1306</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1963</td>
+<td style="text-align:right">16.4828</td>
+<td style="text-align:right">1.60053</td>
+<td style="text-align:right">11.1321</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1964</td>
+<td style="text-align:right">16.9681</td>
+<td style="text-align:right">1.73666</td>
+<td style="text-align:right">12.3054</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Let&rsquo;s see a plot of the temperature of the countrys to see how the average temperature fluctuates from it&rsquo;s initial value in the year 1960.</p>
+<figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/temp_data/Temperature.png"/> 
+</figure>
+
+<p>Canada it&rsquo;s the country with more fluctuations. EUA had some too. Now, let&rsquo;s plot the $CO_2$ emissions per country and also the value of $\Delta T$ per year.</p>
+<figure>
+    <img src="https://ricardoleal20.github.io/Blog/images/temp_data/co2.png"/> 
+</figure>
+
+<p>This gives us an idea of how important is the $CO_2$ emission for the entire enviroment. Canada had a significant increase of $\Delta T$ over the years. USA had the most fluctuating values for $\Delta T$ and it&rsquo;s not a surprise, that country had a lot of $CO_2$ emissions, more that the other countries.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+
+</div>
+<p>That&rsquo;s all for this post! You can check the jupyter notebook from this problem <a href="https://github.com/ricardoleal20/Personal-Projects/blob/master/Python/Data%20Science/Temperature/temperature.ipynb">here</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="see-also-in-data-analysis">
+        See also in Data Analysis
+        <a class="heading-link" href="#see-also-in-data-analysis">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+            <li>
+              <a href="https://ricardoleal20.github.io/Blog/posts/admission/admission/">Graduate admission with Machine Learning.</a>
+            </li>
+          
+        
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2020 -
+        
+        2021
+         Ricardo M. Leal Lopez 
+      
+      
+      
+        
+        
+    </section>
+  </footer>  
+
+<script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+
+    </main>
+
+    
+      
+        
+        <script src="https://ricardoleal20.github.io/Blog/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/particles.js"></script>
+    
+      <script src="https://ricardoleal20.github.io/Blog/js/app.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Numerical Methods on Ricardo</title>
+    <link>https://ricardoleal20.github.io/Blog/series/numerical-methods/</link>
+    <description>Recent content in Numerical Methods on Ricardo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/series/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Burger equation with MacCormack scheme.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/burger/burger/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/burger/burger/</guid>
+      <description>Burgers with MacCormack    Conside the 1D Burgers equation:
+\begin{equation} \frac{\partial u}{\partial t}=-u\frac{\partial u}{\partial x} \end{equation}
+We want to represent this in conservative forms so that we can better deal with potential shocks, which gives us:
+\begin{equation} \frac{\partial u}{\partial t}=-\frac{\partial }{\partial x}\left(\frac{u^2}{2}\right) \end{equation}
+We can also write this as:
+\begin{equation} \frac{\partial u}{\partial t}=-\frac{\partial F}{\partial x} \end{equation}
+If we take $F=\frac{u^2}{2}$. Start with a Heaviside function (a sep function) with the following values:</description>
+    </item>
+    
+    <item>
+      <title>Optimization of a snow ball problem.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/snowball/snowball/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/snowball/snowball/</guid>
+      <description>Snowball Rolling    Suppose that we had a inclinated plane with a snowball in the higher zone. At the end onf that plane, there is a tree that requires a force of $25000N$ to get broke. The equations for the dynamics moves of the snowball are:
+\begin{equation} \Large\begin{array}{c} \frac{dm}{dt}=\beta K_0e^{-\beta t} \\
+\frac{dr}{dt}=\frac{\beta K_0e^{-\beta t}}{4\pi\rho r^2} \\
+\frac{dx}{dt}=v \\
+\frac{dv}{dt}=-\frac{15\rho_aC_d}{56\rho}\frac{v^2}{r}-\frac{23v}{7r}\frac{\beta K_0e^{-\beta t}}{4\pi\rho r^2}+\frac{5}{7}gsin(\theta) \end{array} \end{equation}
+While the impact force is $F=\frac{K_E}{r}$, where $K_E$ is the kinetic energy.</description>
+    </item>
+    
+    <item>
+      <title>Traffic flow with SymPy.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/</link>
+      <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/</guid>
+      <description>Traffic flow, revisited    As we can remember, on the first codes that I made for this blog was Traffic Flow, which had the following conservaton law
+\begin{equation} \frac{\partial \rho}{\partial t}+\frac{\partial F}{\partial x}=0 \end{equation}
+where $F$ is the flux, $F=\rho u$. We can remember that a linear relation between the traffic speed and traffic density can be:
+\begin{equation} F(\rho)=\rho u_{max}\left(1-\frac{\rho}{\rho_{max}}\right) \end{equation}
+This flux model meets the two requirements, based on a qualitative view of traffic flow, that:</description>
+    </item>
+    
+    <item>
+      <title>Solving the heat equation in 1D.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/heat_1d/heat_1d/</guid>
+      <description>Solve the Heat equation.    A very know PDE is the heat equation. It&amp;rsquo;s a very importan equation that describes the distribution of heat in a structure or space in a certain time.
+The PDE looks like this:
+\begin{equation} \frac{\partial T}{\partial t}=\alpha\frac{\partial^2T}{\partial x^2}+f(T) \end{equation}
+where $T$ is the temperature of the system, $\alpha$ is the thermal diffusion constant and $f(T)$ is a function that apply to our system.</description>
+    </item>
+    
+    <item>
+      <title>Modeling an epidemic.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/epidemic/epidemic/</guid>
+      <description>SIR model    The SIR model is a couple of differential equations that work together. That system is
+\begin{equation} \Large\begin{array}{c} \frac{dS}{dt}=-\beta SI \\\
+\frac{dI}{dt}=\beta SI-vI \\\
+\frac{dR}{dt}=vI \end{array} \end{equation}
+In this equation, $S$ are the susceptible individuals, $I$ are the infected individuals and $R$ are the Recovered individuals. $\beta$ are the rate of individuals per period that become infected and $v$ are the rate of individuals per period that become recovered.</description>
+    </item>
+    
+    <item>
+      <title>Analysis of the tympanic membrane with the wave equation.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/wave_membrane/wave_membrane/</guid>
+      <description>Modeling the vibrational behavior in a isotropic model of the tympanic membrane.    The tympanic membrane is a structure that resides in our ear. The behavior of that little membrane can be modeled by the wave equation:
+\begin{equation} \frac{\partial^2 u}{\partial t^2}=c^2\frac{\partial^2u}{\partial x^2} \end{equation}
+This equation will be constrained by the values:
+\begin{equation} 0&amp;lt;x&amp;lt;l\hspace{2mm} \land\hspace{2mm} 0&amp;lt;t&amp;lt;t_f \end{equation}
+The boundary conditions of our system will be:
+\begin{equation} u(0,t)=u(l,t)=0 \hspace{2mm} \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Simulating the traffic flow with Python.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/</link>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/traffic-flow/traffic-flow/</guid>
+      <description>This code was made for the course Practical Numerical Methods with Python. This is the solution for the second homework.
+Consider the flow of traffic on a one-lane highway. How can we describe the general behavior of this system?
+We can define the speed of traffic, $V$, in kilometers per hour. We can also deffine a traffic density, the number of cars per unit length of highwai, $\rho$, in cars per kilometer.</description>
+    </item>
+    
+    <item>
+      <title>Simulating a rocket flight with Python.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/rocket-flight/rocket-flight/</guid>
+      <description>This code was made for the course Practical Numerical Methods with Python. This is the solution for the first homework.
+The equations of motion for a rocker in purely vertical flight are given by:
+\begin{equation} \begin{array}{c} \frac{dh}{dt}=v \\\
+(m_s+m_p)\frac{dv}{dt}=-(m_s+m_p)g+\dot{m}_pv_e-\frac{1}{2}\rho v|v|AC_D \end{array} \end{equation}
+ $h$ is the altitude of the rocket. $m_s$=50kg is the weight of the rocket shell. $g$=9.81 $\frac{m}{s^2}$ $\rho$=1.091 $\frac{kg}{m^3}$ is the average air density (assumed constant throughout flight).</description>
+    </item>
+    
+  </channel>
+</rss>

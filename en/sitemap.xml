@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://ricardoleal20.github.io/Blog/categories/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -18,8 +18,203 @@
   </url>
   
   <url>
+    <loc>https://ricardoleal20.github.io/Blog/tags/data-analysis/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/tags/data-analysis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/tags/data-analysis/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/series/data-analysis/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/series/data-analysis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/series/data-analysis/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/categories/data-analysis/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/categories/data-analysis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/categories/data-analysis/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/posts/admission/admission/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/posts/admission/admission/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/posts/admission/admission/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/tags/machine-learning/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/tags/machine-learning/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/tags/machine-learning/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/series/machine-learning/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/series/machine-learning/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/series/machine-learning/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/categories/machine-learning/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/categories/machine-learning/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/categories/machine-learning/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/posts/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/tags/python/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/series/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/series/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/tags/</loc>
+    <lastmod>2021-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/posts/burger/burger/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/posts/burger/burger/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/posts/burger/burger/"
+                />
+  </url>
+  
+  <url>
     <loc>https://ricardoleal20.github.io/Blog/tags/numerical-methods/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -29,6 +224,51 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ricardoleal20.github.io/Blog/tags/numerical-methods/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/series/numerical-methods/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/series/numerical-methods/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/series/numerical-methods/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/categories/numerical-methods/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/categories/numerical-methods/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/categories/numerical-methods/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/posts/temperature/temperature/</loc>
+    <lastmod>2021-04-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/posts/temperature/temperature/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/posts/temperature/temperature/"
                 />
   </url>
   
@@ -48,6 +288,36 @@
   </url>
   
   <url>
+    <loc>https://ricardoleal20.github.io/Blog/series/optimization/</loc>
+    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/series/optimization/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/series/optimization/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ricardoleal20.github.io/Blog/categories/optimization/</loc>
+    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ricardoleal20.github.io/Blog/es/categories/optimization/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ricardoleal20.github.io/Blog/categories/optimization/"
+                />
+  </url>
+  
+  <url>
     <loc>https://ricardoleal20.github.io/Blog/posts/snowball/snowball/</loc>
     <lastmod>2021-04-07T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -59,111 +329,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ricardoleal20.github.io/Blog/posts/snowball/snowball/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ricardoleal20.github.io/Blog/posts/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/posts/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ricardoleal20.github.io/Blog/tags/python/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/tags/python/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ricardoleal20.github.io/Blog/series/python/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/series/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/series/python/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ricardoleal20.github.io/Blog/categories/python/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/categories/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/categories/python/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ricardoleal20.github.io/Blog/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ricardoleal20.github.io/Blog/series/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/series/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ricardoleal20.github.io/Blog/tags/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ricardoleal20.github.io/Blog/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ricardoleal20.github.io/Blog/tags/"
                 />
   </url>
   

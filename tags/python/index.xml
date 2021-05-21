@@ -6,7 +6,42 @@
     <description>Recent content in Python on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graduate admission with Machine Learning.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/admission/admission/</link>
+      <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/admission/admission/</guid>
+      <description>Graduate admission using Machine Learning    The graduate admission can be really tough for most of the students. As a student that want to form part of a graduate school, i wonder myself, what are my chance to get into one of this schools?
+In the webpage Kaggle, i found this incredible dataset that collect data from undergraduate students, such as the University Rating (the University place where study their undergraduate), their CGPA, their TOEFL Score and others.</description>
+    </item>
+    
+    <item>
+      <title>Burger equation with MacCormack scheme.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/burger/burger/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/burger/burger/</guid>
+      <description>Burgers with MacCormack    Conside the 1D Burgers equation:
+\begin{equation} \frac{\partial u}{\partial t}=-u\frac{\partial u}{\partial x} \end{equation}
+We want to represent this in conservative forms so that we can better deal with potential shocks, which gives us:
+\begin{equation} \frac{\partial u}{\partial t}=-\frac{\partial }{\partial x}\left(\frac{u^2}{2}\right) \end{equation}
+We can also write this as:
+\begin{equation} \frac{\partial u}{\partial t}=-\frac{\partial F}{\partial x} \end{equation}
+If we take $F=\frac{u^2}{2}$. Start with a Heaviside function (a sep function) with the following values:</description>
+    </item>
+    
+    <item>
+      <title>North America evolution of temperature.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/temperature/temperature/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/temperature/temperature/</guid>
+      <description>North america change in temperature    In this project, I decide to make a comparison in North America to check the $CO_2$ emittions and the temperature change between the years. In particular, I&amp;rsquo;m gonna work with United States, Canada and Mexico. I&amp;rsquo;m gonna check how many $CO_2$ produce every country from 1960 until now, and also check the average temperature.
+First, let me import the libraries to use</description>
+    </item>
+    
     <item>
       <title>Optimization of a snow ball problem.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/snowball/snowball/</link>
@@ -22,7 +57,7 @@ While the impact force is $F=\frac{K_E}{r}$, where $K_E$ is the kinetic energy.<
     </item>
     
     <item>
-      <title>Traffic flow with SciPy.</title>
+      <title>Traffic flow with SymPy.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/new-traffic/traffic/</link>
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
       
