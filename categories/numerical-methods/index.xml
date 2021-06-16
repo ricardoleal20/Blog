@@ -6,7 +6,17 @@
     <description>Recent content in Numerical Methods on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/categories/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/categories/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shock Tube problem.</title>
+      <link>https://ricardoleal20.github.io/Blog/posts/sod-shock/sod/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/posts/sod-shock/sod/</guid>
+      <description>Shock Tube    A shock tube is an idealized device that generates a one-dimensional shock wave in a compressible gas. The setting allows an analytical solution of the Euler equations, which is very useful for comparing with the numerical results to assess their accuracy.
+Picture a tube with two regions containing gas at different pressures, separated by an infinitely-thin, rigid diaphragm. The gas is initially at rest, and the left region is at a higher pressure than the region to the right of the diaphragm.</description>
+    </item>
+    
     <item>
       <title>Burger equation with MacCormack scheme.</title>
       <link>https://ricardoleal20.github.io/Blog/posts/burger/burger/</link>
