@@ -6,7 +6,25 @@
     <description>Recent content in Python on Ricardo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ricardoleal20.github.io/Blog/es/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simular una difusión usando el modelo Gray Scott.</title>
+      <link>https://ricardoleal20.github.io/Blog/es/posts/react_diff/react_diff/</link>
+      <pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/posts/react_diff/react_diff/</guid>
+      <description>Traducción en proceso.    ¡Eso es todo por este post! Puedes ver el jupyter notebook de este problema aquí.</description>
+    </item>
+    
+    <item>
+      <title>Simulando un problema de difusión de calor en 2D.</title>
+      <link>https://ricardoleal20.github.io/Blog/es/posts/heat_2d/heat_2d/</link>
+      <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ricardoleal20.github.io/Blog/es/posts/heat_2d/heat_2d/</guid>
+      <description>Traducción en proceso.    ¡Eso es todo por este post! Puedes ver el jupyter notebook de este problema aquí.</description>
+    </item>
+    
     <item>
       <title>Problema del tubo de choque.</title>
       <link>https://ricardoleal20.github.io/Blog/es/posts/sod-shock/sod/</link>
